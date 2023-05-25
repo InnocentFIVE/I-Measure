@@ -1,0 +1,70 @@
+\begin{thebibliography}{{Ama}05}
+
+\bibitem[{Ama}05]{amann05}
+{Amann, Herbert and Escher, Joachim and Brookfield, Gary}.
+\newblock {\em Analysis}.
+\newblock Springer, 2005.
+\newblock {\par\small\kaishu 一本适合自学,
+  自包含但是篇幅相当长的分析教材.
+  \color{lightgray}本文并没有从内容上参考此书,
+  但是有一幅图片是来自本书的封面.}
+
+\bibitem[{Axl}20]{axler20}
+{Axler Sheldon}.
+\newblock {\em {Measure, integration \& real analysis}}.
+\newblock Springer Nature, 2020.
+\newblock {\par\small\kaishu 一本不错的图文并茂的实分析教材,
+  同大多数实分析一样, 讨论了一些泛函, Fourier
+  理论和概率论的知识. 更多内容见
+  \url{https://measure.axler.net/}. \color{lightgray}
+  本文并没有从内容上参考此书,
+  但是有一幅图片来自此书的一幅图.}
+
+\bibitem[Bro69]{Brown69}
+A.~Brown.
+\newblock {An elementary example of a continuous singular function}.
+\newblock {\em American Mathematical Monthly}, (76):295--297, 1969.
+\newblock {\par\small\kaishu
+  本文中提到的严格单增且导数几乎处处为 $0$
+  的例子来自于此.}
+
+\bibitem[Dun10]{William10}
+William Dunham.
+\newblock {\em {微积分的历程: 从牛顿到勒贝格}}.
+\newblock 人民邮电出版社, 2010.
+\newblock {\par\small\kaishu 一本有趣的数学书.
+  本文一些数学史相关的叙述来自于此.}
+
+\bibitem[{Fal}86]{falconer86}
+{Falconer, Kenneth J}.
+\newblock {\em The geometry of fractal sets}.
+\newblock Number~85. Cambridge university press, 1986.
+\newblock {\par\small\kaishu 一本很有趣的小书,
+  没有啥前置知识需求.}
+
+\bibitem[F.C67]{Cunningham67}
+F.Cunningham.
+\newblock {Taking limits under the integral sign}.
+\newblock {\em Mathematics Magazine}, 40:179--186, 1967.
+\newblock {\par\small\kaishu 本文中提到的 Riemann
+  积分相关的控制收敛定理来自于此.}
+
+\bibitem[Fol99]{Folland99}
+G.~B. Folland.
+\newblock {\em Real Analysis: Modern Techniques and their Applications}.
+\newblock John Wiley \& Sons, 1999.
+\newblock {\par\small\kaishu 这是一本著名的实分析教材,
+  作为入门可能难度稍微大了些:
+  毕竟其从抽象测度开始讲起,
+  而且涵盖的内容远远不止实分析: 比如点集拓扑, 泛函分析,
+  Fourier 分析和概率论等. 勘误表可见
+  \url{https://sites.math.washington.edu/~folland/Homepage/}}.
+
+\bibitem[{夏}80]{xiadaoxing80}
+{夏道行, 吴卓人, 严绍宗, 舒五昌}.
+\newblock {\em {实变函数论与泛函分析: 上册}}.
+\newblock 高等教育出版社, 1980.
+\newblock {\par\small\kaishu 国内老牌的实分析教材,
+  内容详实丰富, 可以与 \cite{Folland99} 的简明互补.}
+
+\end{thebibliography}
