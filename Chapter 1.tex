@@ -1,0 +1,41 @@
+\section{引\kern\ccwd 论}
+\begin{quote}
+    少女祈祷中\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$
+\end{quote}
+
+测度(measure)一词可望文生义地理解为对集合``大小''之描述. 如: 从古希腊时期始, 数学家们就为了给出圆的面积做了许多工作; 而放到现在来看, 面积, 体积, 长度等描述其实都是 Lebesgue 测度上在良好性质集合下之限制. 为了避免把路走窄, 我们并不会从 Lebesgue 测度开始引入. 而是先介绍另一种``离散''的测度.
+
+\begin{defi}[计数测度]
+    令 $X$ 是集合, $\mathcal P(X)$ 是集合的子集所构成的集合, 也即``幂集''. 定义函数 $\operatorname{card}:\mathcal P(X)\to \mathbb Z_{\geqslant 0}\cup\left\{ \infty \right\}$. 返回集合中元素个数, 若集合无穷则返回 $\infty$\enote.
+\end{defi}
+诚然, 这是一种粗糙的测量集合的方法, 我们现在应该从中提取和一般``体积'', ``面积''之类描述相同的性质以为己用. 事实上, 我们并不会多关注这个测度, 将这个测度放在一开始的初衷在于让大家看到测度的其他潜能, 这种潜能我们会在后续的描述中逐步揭晓.
+\paragraph{``测度''的性质, Ver.1}
+\begin{itemize}
+    \item 古老的测度是用来描述圆, 正方形这类几何对象的, 从现在的观点上看, 这些对象只是 $\mathbb R^2$ 上的良好子集, 因此不妨设有一个大空间 $X$, 而测度描述其子集返回一个正数(或者 $\infty$). 也即 $\mu\enote :\mathcal P(X)\to [\,0,\infty\,]$.
+    \item 测度应该满足一定意义上的``可加性'', 直观上来看就是两个不交的几何对象的体积应该是其体积之和. 也即:
+          \[
+              A\cap B=\varnothing\implies \mu (A\cup B)=\mu (A)+\mu (B).
+          \]
+          当然这性质可以归纳到有限个两两不交集合的情形, 我们称此性质为``有限可加性''.
+    \item 对于 $\mathbb R^n$ 中的测度, 还应该满足旋转, 平移不变性. 更一般地, 它也应当有合理的伸缩性质, 也即:
+          若 $T$ 是 $\mathbb R^n$ 上的线性变换, 那么应当有 $\mu (T(E)) = |\!\det T|\cdot \mu (E)$. 此处我们稍稍利用了下 $\mathbb R^n$ 上线性变换的几何直观.
+\end{itemize}
+直觉告诉我们这个``测度''的性质, 或依赖该性质的定义是没有什么太大的意义的, 否则也不会出现在本文的开头. 问题出现在有限可加性与旋转, 平移不变性之间. 在 1924 年, S. Banach and A. Tarski 在一篇令人惊讶的论文 \emph{Sur la decomposition des ensembles de points en parties respectivement congruentes} 中证明了这样的事实:
+\begin{theorem}[S. Banach, A. Tarski]
+    令 $A$, $B$ 是 $\mathbb R^n$ 中的开集, 其中 $n\geqslant 3$. 则我们可以将 $A$, $B$ 分为同样多份: $A_1$, $\dots$, $A_k$, $B_1$, $\dots$, $B_k$ 且 $A_i$ 两两不交, $B_i$ 亦然. 且各 $A_i$ 可由 $B_i$ 旋转, 平移得到\enote.
+\end{theorem}
+这个定理一般被称为 Banach\,--\,Tarski 定理, 或者在现在网络的普及下, ``\emph{分球悖论}\enote''这个名字流传更为广泛. 证明这定理的过程需要用到一个叫做选择公理的集合论假设, 通俗来说其保证了无穷个集合的 Cartesian 积的存在性.
+
+因此我们的有限可加``测度''幻梦在这机械降神下突然破灭. 这启迪我们, $\mathbb R^n$ 并非那么单纯. 我们需要削减测度的要求才能继续向前.
+
+思来想去, 既然连``有限可加''那么``显然''\enote 的性质都会在选择公理的作用下毁灭, 那咱不如摆烂: 直接讨论所有``可测''的集合, 换句话说就是我无论怎么玩弄都不会产生任何悖论的集合. 而如何得到这样的集合就是一个重点.
+
+在引入``可测集合''的概念之前, 我们仍需引入测度. 考虑到我们可能需要在一些特殊的可数集上面做文章: 比如 $\mathbb Q$ 之类, 亦或者能够对更多的集合(尤其是与可数个小集合的并相关)都保有良好的性质, 我们处理测度时会把``有限可加性''加强为``可数可加性\enote'', 也即: 若 $\{A_n\}_{n\geqslant 0}$ 两两不交, 则 $\mu (\bigcup_{n\geqslant 0} A_n) = \sum_{n\geqslant 0} \mu (A_n)$.
+
+\paragraph{``测度''的性质, Ver.2}\label{测度的性质}
+\begin{itemize}
+    \item $\mu :\mathcal M_\mu\to [\,0,\infty\,]$. 其中 $\mathcal M_\mu$ 是性质良好集合的集合.
+    \item $\{A_n\}_{n\geqslant 0}$ 两两不交, $\mu (\bigcup_{n\geqslant 0} A_n) = \sum_{n\geqslant 0} \mu (A_n)$.
+    \item 我们稍稍加上一个新的假设: $\mu (\varnothing) = 0$\enote. 因为测度函数返回的值最好不要太大.
+\end{itemize}
+这已经是我们现在处理的测度了, 不过我们需要知道 $\mathcal M_\mu$ 到底是什么.

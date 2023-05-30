@@ -1,0 +1,257 @@
+\section{积分的简单介绍}
+\begin{quote}
+    ``为解决已经提出的问题而非偏爱复杂事物, 我在书中引进一个积分定义, 该定义比 Riemann 积分更具普遍性, 并把 Riemann 积分作为一个特例.''\par\hfill ------\emph{Henri Lebesgue}
+\end{quote}
+
+测度上的积分自然是比 Riemann 更加一般. 事实上这种处理也可以把各种各样的求和(几乎一致地)统一在一起.
+
+在十九世纪八十年代之前, 分析学受到许多反例函数的冲击. 其中最出名的反例就是 Dirichlet 函数:
+\[
+    D(x) = \begin{cases}
+        1, & x\in\mathbb Q,    \\
+        0, & x\notin\mathbb Q.
+    \end{cases}
+\]
+(按照现在的惯例我们会将其记为 $\chi_{\mathbb Q}$)我们知晓其是非 Riemann 可积的. 这些反例引起的分析界的混乱让无数数学家投入其中. 我们迫切想要知道一个函数是 Riemann 可积的充要条件是啥, 那个时候大多数人已经知道这个充要条件与函数的不连续点相关, 但如何描述这个集合使得其是 Riemann 可积的充要条件成为了当时极富挑战性的问题\enote.
+
+而填上这个描述的正是 Lebesgue 本人. 这被称为以下著名的定理:
+\begin{theorem}[Lebesgue 定理]
+    一个有界函数 $f$ 在 $[\,a,b\,]$ 上 Riemann 可积的充要条件是其不连续点集 Lebesgue 零测.
+\end{theorem}
+这个定理以``Lebesgue 定理''冠名证实了它极高的重要程度, 也直接说明了 Riemann 积分是不够本质的积分.
+
+回到测度上的积分上来, 我们建立这个观念应该从第一直觉开始:
+\begin{defi}[示性函数]
+    令 $X$ 是集合, $E\subseteq X$, 则令
+    \[
+        \chi_E(x) =\begin{cases}
+            1, & x\in E,    \\
+            0, & x\notin E.
+        \end{cases}
+    \]
+    称为示性函数.
+\end{defi}
+因此我们管 Dirichlet 函数叫做 $\chi_{\mathbb Q}$ 并非毫无道理. 现在我们来尝试定义一下测度空间上示性函数的积分.
+
+按照我们的想法, $(\mathbb R,\mathcal L,m)$ 是 Lebesgue 测度空间, 则应该有
+\[
+    \int_{\mathbb R}\chi_{E} = m(E).
+\]
+诸如 $E=[\,0,1\,]$ 此类上式是自然而然成立的, 反观 Dirichlet 函数:
+\[
+    \int_{\mathbb R}\chi_{\mathbb Q} = m(\mathbb Q) = 0
+    .\]
+(虽然看上去有点强词夺理)至少说明 Lebesgue 积分是有点用的. 至于 Lebesgue 如何定义积分的天才想法我们会在后面逐步揭露.
+
+首先强调一个事实: $\chi_E$ 中的 $E$ 必然是可测集才行. 这样的话我们也可以往抽象的测度积分迈进: 令 $(X,\mathcal M,\mu )$ 是测度空间和其上的一个测度, 那么定义 $\chi_E$ 的积分是
+\[
+    \int_X \chi_E \d \mu  \coloneqq  \mu (E)
+    .\]
+这看起来貌似只是照搬记号, 事实上, 对测度积分实际上可以通过变换测度来给出更加广泛的形式. 比如说 Lebesgue 测度对应的积分实际上是 Riemann 积分的推广; 对计数测度的积分实际上就是一般的求和; 对 Lebesgue\,--\,Stieltjes 测度的积分得到的结果是数学期望; 对 Dirac 测度的积分得到的结果是函数在 $0$ 处的值. 而这些看上去有点相似的东西都可以通过``对测度的积分''统一起来. 这也是一般的抽象测度积分的重要意义.
+
+好了好了, 至少现在我们知道对全空间上的示性函数的积分是什么, 但是我只是对一个(可测)子集积分呢? 比如 Lebesgue 积分: $\int_0^1 \chi_E$?
+
+事实上一个几乎显然的解决方案是 $\int_0^1 \chi_E=\int_{\mathbb R}\chi_E\cdot \chi_{[0,1]}=\int_{\mathbb R}\chi_{E\cap[0,1]}$. 相似的处理可以拓展到其他测度上.
+
+现在我们对一般的示性函数已经了解了其应该怎么积分了, 现在我们来看看对一般的函数应该怎么积分.
+
+考虑到不可测集的存在, 我们大概也清楚应该有``不可测函数'', 比如说令 $A$ 是一个不可测集, 那么 $\chi_A$ 就是不可测的函数(即使它是示性函数). 另外, 由于测度可能会返回无穷, 我们有时候也不得不考虑被积函数有时候会摸到无穷的情形, 一个不太妙的例子来自于:
+\[
+    D_\infty(x) = \begin{cases}
+        \infty, & x\in \mathbb Q,    \\
+        0,      & x\notin \mathbb Q.
+    \end{cases} \ = \infty\chi_{\mathbb Q}.
+\]
+考虑 $\int D_\infty$ 会得到 $0\cdot \infty$ 的情形. 在一般的数学分析中, 我们会叫他``不定式''. 因为在数学分析里, $\infty$ 是一个极限过程, 我们得到的值实际上是一个极限值, 其来自于趋向无穷与趋向 $0$ 的速率的比较. 但在这里, 由于舍弃了极限过程, $\infty$ 只是一个记号, 因此我们为了方便记 $0\cdot \infty = 0$\enote.
+
+接下来我们来好好想想什么函数是``可测的''.
+
+如果我们无视``可测的''在测度上的意味, 那么单单论函数``可测''就只能表示其性质良好\enote.
+
+回想一下吧! 可测集满足上面好的性质? 除了看起来不太能延拓到函数上的``构成一个\;$\sigma $-代数''以外, 可测集还满足:
+\begin{itemize}
+    \item 若 $\{A_n\}_{n\geqslant 0}$ 可测, 则 $\bigcup_{n\geqslant 0}A_n$, $\bigcap_{n\geqslant 0}A_n$ 亦可测: 由于\;$\sigma $-代数对可数并, 可数交封闭即得;
+    \item 考虑集合的上下极限: $\{A_n\}_{n\geqslant 0}$ 可测, 则 $\limsup_{n\geqslant 0}A_n$, $\liminf_{n\geqslant 0}A_n$ 亦可测. 因为这两个上下极限可由 $\{A_n\}_{n\geqslant 0}$ 的可数交 / 并处理得到(可以回去看看上下极限的定义).
+\end{itemize}
+对函数我们什么情形也能满足这样的要求呢(此处按照以前的讨论, 将 $\bigcup$ 替以 $\sup$, $\bigcap$ 替以 $\inf$)?
+\begin{itemize}
+    \item 若 $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\sup_{n\geqslant 0}f_n$, $\inf_{n\geqslant 0}f_n$ 亦可测;
+    \item 考虑集合的上下极限: $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\limsup_{n\geqslant 0}f_n$, $\liminf_{n\geqslant 0}f_n$ 亦可测.
+    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \chi_A(x)=1\,\}$.
+\end{itemize}
+如果我们把``可测''换成``可积'', 则前两款性质在 Riemann 积分属于是可望不可即的存在: 什么时候 $f$ 的良好性质也能通过上 / 下确界, 上 / 下极限保持呢\enote?
+
+为了避免让可测函数的定义显得太突兀, 我们不妨先看看对于一个函数怎么定义积分为妙. 为了方便, 假设 $0\leqslant f<\infty$.
+
+\paragraph{``可测函数''的积分}
+考虑到我们刚刚只定义了示性函数的积分, 我们先来考虑对此定义的线性延拓:
+\[
+    \int \sum_{j=0}^n a_j\chi_{A_j}\d \mu = \sum_{j=0}^n a_j\int\chi_{A_j}\d \mu = \sum_{j=0}^n a_j\mu(A_j)
+    .\]
+(假定出现的集合都是可测的)那么对 $0\leqslant f<\infty$ 的情形, 我们的一个比较讨巧的定义是:
+\[
+    \int f\d\mu = \sup\Bigl\{\, \int \psi \d \mu \Bigm| \psi \textit{ 是示性函数的线性组合},\, 0\leqslant \psi \leqslant f\,\Bigr\}
+    .\]
+看起来用 $\sup$ 巧妙地避开了 Darboux 上下和碰不到的情形, 但一个极大的问题是, 我同样可以定义
+\[
+    \int f\,\hat{\d}\mu = \sup\Bigl\{\, \int \psi\, \hat{\d}\mu \Bigm| \psi \textit{ 是连续函数},\, 0\leqslant \psi \leqslant f\,\Bigr\}
+    .\]
+因此又回到了那个问题: 在这个定义下隐藏的细节是什么? 在本文中上一个想要取代``面积''的例子是没能成功的 Jordan 容度. 因此我们不能胡乱地定义. 选择前者的其中一个原因是连续函数必须要求 $f$ 的底空间需要有一个拓扑, 而在一般的测度空间内我们完全可以不管拓扑; 另一个原因是: 他不能导出这个极其有用的定理:
+\begin{theorem}[单调收敛定理]
+    令 $\{f_n\}_{n\geqslant 0}$ 是非负可测函数列, 则
+    \[
+        \sum_{n\geqslant 0}\int f_n\d \mu = \int\sum_{n\geqslant 0} f_n\d \mu
+        .\]
+\end{theorem}
+当然这属于马后炮发言, 不过考虑到没能导出这类定理的积分也都会消失在漫漫历史长河中, 这个对测度的积分能够保留下来自然是有其重要性的.
+
+暂且就先保持这个定义, 我们知道有这么一些``示性函数的线性组合'', 满足(当然还要满足 $\psi _n\leqslant f$)
+\[
+    \int \psi _n\d \mu \longrightarrow\int f\d \mu \enote
+    .\]
+本着精益求精的精神, 我们也会希望至少存在这么一组``示性函数的线性组合''列, $\psi _n\to f$. 而这显然是连续函数做不到的.
+
+让我们看看这个要求应当如何实现:
+
+\begin{center}
+    \begin{tikzpicture}
+        \pgfplotsset{width=12cm,height=6cm}
+        \begin{axis}[
+                axis x line=middle,
+                axis y line=middle,%box|top|middle|center|bottom|none
+                every inner x axis line/.append style={->},%{-stealth}|{-latex}
+                every inner y axis line/.append style={->},
+                ymax = 3.2,
+                xmin = -3.2,
+                xmax = 3.2,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                grid style=dashed,
+            ]
+            \addplot[no marks, gray, thick] file {Plot1.dat};
+            \addplot[no marks, thick] file {Plot2.dat};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+如图, 这是一种奇特的实现方法: 分割 $f$ 的值域. 其具体过程较为繁琐, 此处意会即可(在这里是以 $1/8$ 为步长分割值域). 值得注意的是灰色代表的函数可以写为
+\[
+    \psi _{8}(x) = \sum_{j=0}^{n} a_jA_j = \sum_{j=0}^{n} \frac{j}{8}\chi_{f^{-1}([(j-1) / 8, j / 8))}\enote
+    .\]
+(其中 $f^{-1} (E) = \{\,x\mid f(x)\in E\,\}$)其中出现了示性函数, 因此我们必须保证 $f^{-1}([\,a,b))$ 是可测的. 考虑到看起来不太美妙的 $[\,a,b)$ 其实是 Borel 集合, 因此不妨推广一下:
+\[
+    \forall B\in\mathcal B_{\mathbb R},\quad f^{-1} (B) \textit{ 是可测的}.
+\]
+这看起来是毫无必要的束缚, 但实际上在 $\mathbb R$ 中, 这个条件与 $f^{-1}([\,a,b))$ 可测等价\enote. 现在我们定义可测函数:
+                \begin{defi}[$\overline{\mathbb R}$\,\enote 上的可测函数]
+                    若 $f:(X,\mathcal M,\mu )\to [\,-\infty,\infty\,]$ 满足
+                    \[
+                        \forall B\in\mathcal B_{\overline{\mathbb R}},\quad f^{-1} (B) \textit{ 是\;$\mu $-可测的}
+                        .\]
+                    则 $f$ 是 $\mathbb R$ 上的可测函数\enote\enote.
+                \end{defi}
+                现在我们定义完可测函数之后, 接下来我们来看看我们一开始要求的性质:
+                \begin{itemize}
+                    \item 若 $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\sup_{n\geqslant 0}f_n$, $\inf_{n\geqslant 0}f_n$ 亦可测;
+                    \item 考虑集合的上下极限: $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\limsup_{n\geqslant 0}f_n$, $\liminf_{n\geqslant 0}f_n$ 亦可测.
+                    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \chi_A(x)=1\,\}$.
+                \end{itemize}
+                第三款自然满足: 因为 $\{a\}=\bigcap_{j\geqslant 1}(a- 1 /j,a+1 /j)\in\mathcal B_{\overline{\mathbb R}}$. 我们现在考虑第一款:
+                \[
+                    \begin{aligned}
+                        \Bigl(\, \sup_{n\geqslant 0}f_n \Bigr)^{-1}  ((a,\infty\,]) & = \left\{ \,x \mid \textit{存在 $n$, 使得 $f_n(x)>a$ 成立}\, \right\} \\
+                                                                                    & = \bigcup_{n\geqslant 0}f_n^{-1}  ((a,\infty\,]).
+                    \end{aligned}
+                \]
+                而后面的可数并中, 每个集合都是可测的. 故 $( \sup_{n\geqslant 0}f_n )^{-1}  ((a,\infty\,])$ 可测, 也即 $\sup_{n\geqslant 0}f_n $ 是可测函数. 同理对 $\inf_{n\geqslant 0}f_n $ 亦然.
+
+接下来是考虑更为有用的上下极限: 由于 $\sup_{n\geqslant 0}f_n$ 可测, 故 $\forall n$, $\sup_{k\geqslant n}f_k$ 亦然. 而
+\[
+    \Bigl(  \limsup_{n\geqslant 0}f_n \Bigr)^{-1}  ((a,\infty\,]) = \Bigl(\,\adjustlimits \inf_{n\geqslant 0}\sup_{k\geqslant n}f_k\Bigr)^{-1}  ((a,\infty\,])
+    .\]
+由于 $\forall n$, $\sup_{k\geqslant n}f_k$ 可测, 故在 $\inf_{n\geqslant 0}f_n$ 的讨论中以 $\sup_{k\geqslant n}f_k$ 代以  $f_n$ 即得. 关于下极限的讨论同理.
+
+而现在, 我们已经对非负函数完成了积分的定义. 至于一般的函数:
+\begin{defi}[对测度的积分]
+    令 $f$ 是可测函数. 则令
+    \[
+        f^+\coloneqq \max(f,0),\quad f^-\coloneqq \max(-f,0).
+    \]故 $f^+$, $f^-$ 的积分已经定义好了. 令
+    \[
+        \int f\d \mu =
+        \begin{dcases}
+            \int f^+\d \mu -\!\int f^-\d \mu , & \int f^+\d \mu ~\textit{与}\int f^-\d \mu\textit{ 至少有一个 $<\infty$},\vspace{8pt} \\
+            \textit{不存在},                   & \int f^+\d \mu =\!\int f^-\d \mu = \infty.
+        \end{dcases}
+    \]
+    如果 $\int f^+\d \mu$, $\int f^-\d \mu<\infty$, 则称 $f$ 是可积的. 记为 $f\in L(\mu )$\enote.
+\end{defi}
+
+咕噜咕噜! 我们奇特的测度积分定义宣告结束! 现在咱来看看这玩意相比一般的 Riemann 积分有什么好处吧!
+
+第一个好处其实已经在之前说过了: 关于 Dirichlet 函数的积分. Lebesgue 积分可以处理这玩意, 而 Riemann 积分不行. 这意味着 Lebesgue 可积的函数更广阔\enote. 另外一个好处是之前提到过的单调收敛定理:
+\begin{theorem}[单调收敛定理]
+    令 $\{f_n\}_{n\geqslant 0}$ 是非负可测函数列, 则
+    \[
+        \sum_{n\geqslant 0}\int f_n\d \mu = \int\sum_{n\geqslant 0} f_n\d \mu
+        .\]
+\end{theorem}
+以及 Lebesgue 积分论中的大头:
+\begin{theorem}[控制收敛定理]
+    令 $\{f_n\}_{n\geqslant 0}$ 是可积函数列, 且满足 $f_n\to f$, 若存在可积函数 $g$ 满足 $|f_n|\leqslant g$ 对任意 $n$ 成立, 则 $f$ 可积且
+    \[
+        \lim_{n \to \infty} \int f_n\d \mu = \int f\d \mu\enote
+        .\]
+\end{theorem}
+和完美的微积分基本定理:
+\begin{theorem}[(Lebesgue 积分下的)微积分基本定理]
+    令 $f:[\,a,b\,]\to \mathbb C$, 则以下两者等价:
+    \begin{itemize}[leftmargin = 1em]
+        \item $f$ 在 $[\,a,b\,]$ 上绝对连续, 即 $\forall\varepsilon>0$, $\exists \delta >0$ 满足对任意有限个不交的开区间 $(a_1,b_1)$, $\dots$, $(a_n,b_n)$, 有
+              \[
+                  \sum_{j=1}^n(b_j-a_j)<\delta\implies \sum_{j=1}^n |f(b_j)-f(a_j)|<\varepsilon
+                  .\]
+        \item $f$ 几乎处处可导, $f'$ 可积且 $\forall x\in[\,a,b\,]$, $\int_a^x f' \d m = f(x) - f(a)$.
+    \end{itemize}
+\end{theorem}
+想想如果在 Riemann 积分中要让积分和极限交换要花多少处理就能知道控制收敛定理的非凡意义\enote. 同时, 对 Lebesgue 积分的微积分基本定理恢复了本应有的完美形式, 大抵上是本文所谈论的所有工作的结晶.
+
+最后, Lebesgue 证明了对 Lebesgue 测度的积分的确是 Riemann 积分的推广:
+\begin{theorem}
+    令 $f$ 是 $[\,a,b\,]$ 上的有界函数, 则若 $f$ Riemann 可积, 则必然 Lebesgue 可积, 且两个积分值相同.
+\end{theorem}
+这些定理的前置比较冗长, 因此在这里就不证明了. 不管如何, Lebesgue 所做的这些工作让他以积分理论闻名于世. 其彻底解决了从 Riemann 时代就流传下来的历史问题, 同时也将分析学带入了新的高度.
+
+关于测度与积分还有一些有趣的事实: 如果 $\mu $ 是定义在可测空间 $(X,\mathcal M)$ 上的测度, 那么其实对任意的非负可测函数 $f$,
+\[
+    \nu :\mathcal M\to [\,0,\infty\,],\quad E\mapsto \int_E f\d \mu
+    .\]
+也是一个测度. 这个例子有什么用呢? 注意到 $\mu $ 是 Lebesgue 测度, $\nu $ 是 Lebesgue\,--\,Stieltjes 测度\enote, $E$ 是开区间的情形, 我们发现这里的 $f$ 大概就是 $F$ 的导数(如果 $F$ 真的可导的话). 这启迪我们考虑``测度的导数''\enote.
+
+这样的导数我们会称其为 $\nu $ 对 $\mu $ 的 Radon\,--\,Nikodym 导数, 以 $\d \nu /\d \mu $ 以记之. 一个有趣的``注意到''是: 若 $\mu (E)=0$, 则 $\int_E f\d \mu =0$. 因此若考虑 $\nu $ 是由函数对 $\mu $ 测度的积分生成的测度, 则必然有 $\mu (E) = 0 \implies \nu (E) = 0$, 这个要求被称为 $\nu $ 关于 $\mu $ 绝对连续\enote\enote. 一个反面教材是 Dirac 测度, 我们发现 $m(\{0\})=0$, $\delta(\{0\})=1$. 这意味这 Dirac 测度不可能有对 Lebesgue 测度的 Radon\,--\,Nikodym 导数. 而我们一般会把这个``不存在的导数''记为 Dirac $\delta $ 函数.
+
+最后以扯一些 $n$ 维上的 Lebesgue 积分来结束这段旅行.
+
+我们先使用上一节留下的 $\mathbb R^n$ 上的 Lebesgue 测度. 在这种情形下, 有两个定理是值得我们关注的:
+
+\begin{theorem}[Fubini, Tonelli]
+    令 $f$ 是 $\mathbb R^n$ 上的可测函数, 则:
+    fubuni
+    若 $f\geqslant 0$ 或 $f\in L(m^n)$\enote\enote, 则
+    \[
+        \int f \d m^n = \int\left(\,\cdots \!\int\left(\, \int f(x_1,\dots,x_n)\d x_1 \right) \d x_2\cdots \right)\d x_n\enote
+        .\]
+\end{theorem}
+\begin{theorem}[变量替换定理]
+    令 $A$ 是 $\mathbb R^n$ 上中的开集, $\psi :A\to \psi (A)$ 是连续可微的双射, 且有一个连续可微的逆(或者我们叫 $\mathscr C^1$ 同胚), 令 $f$ 是 $A$ 上的可测函数.
+
+    若 $f\geqslant 0$ 或 $f\in L(m^n)$, 则
+    \[
+        \int_A f\d m^n = \int_{\psi (A)} (f\circ \psi)\cdot |\!\det \psi'|\d m^n
+        .\]
+\end{theorem}
+这意味着我们的 $n$ 维 Riemann 积分可以``任意地''推广到 Lebesgue 积分上去, 也难怪法国数学家 Jean Dieudonné 会说:
+\begin{center}
+    \kaishu\itshape ``假若不是由于 Riemann 显赫的名声, Riemann 积分早就被淘汰了.''
+\end{center}
+虽然 Riemann 的不成熟的积分的确是旧时代的产物, 但就如同我们现在仍在处理经典力学一样, 通过直观性为主的体验来引入积分美学必然有其价值. 虽然 Lebesgue 积分某种意义上将 Riemann 积分打落, 但事实上 Lebesgue 本人对 Riemann 积分有着相当充足的理解. 最后, 正如我们现在看到的, 所有这一切只是一个序幕, 现代分析的萌芽才刚刚开始发展\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$
