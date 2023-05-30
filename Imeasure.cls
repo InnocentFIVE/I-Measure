@@ -290,7 +290,7 @@
 \newtheoremstyle{innocent}{}{}
 {\rmfamily\kaishu}{}
 {\sffamily\bfseries}{}
-{.5em}{\thmname{#1}\thmnumber{ #2}\,\mdseries\rmfamily\thmnote{$\left(\,\mbox{#3}\,\right) $}.~}
+{ }{\thmname{#1}\thmnumber{ #2}\,\mdseries\rmfamily\thmnote{$\left(\,\mbox{#3}\,\right) $}.~}
 \theoremstyle{innocent}
 \newtheorem*{theorem}{定理}
 \newtheorem*{prop}{命题}
