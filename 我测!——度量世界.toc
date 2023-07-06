@@ -9,4 +9,4 @@
 \contentsline {section}{\numberline {第六节}积分的简单介绍}{17}{section.6}%
 \contentsline {paragraph}{``可测函数''的积分}{20}{paragraph*.4}%
 \contentsline {section}{\numberline {第七节}附\kern \ccwd 录}{25}{section.7}%
-\contentsline {section}{\numberline {第八节}尾\kern \ccwd 注}{27}{section.8}%
+\contentsline {section}{\numberline {第八节}尾\kern \ccwd 注}{28}{section.8}%

@@ -4,7 +4,7 @@
 {Amann, Herbert and Escher, Joachim and Brookfield, Gary}.
 \newblock {\em Analysis}.
 \newblock Springer, 2005.
-\newblock {\par\small\kaishu 一本适合自学,
+\newblock {\par\small\kaishu 一套适合自学,
   自包含但是篇幅相当长的分析教材.
   \color{lightgray}本文并没有从内容上参考此书,
   但是有一幅图片是来自本书的封面.}
@@ -34,6 +34,14 @@ William Dunham.
 \newblock 人民邮电出版社, 2010.
 \newblock {\par\small\kaishu 一本有趣的数学书.
   本文一些数学史相关的叙述来自于此.}
+
+\bibitem[Duo01]{2001fourier}
+Javier Duoandikoetxea.
+\newblock {\em Fourier analysis}.
+\newblock American Mathematical Soc., 2001.
+\newblock {\par\small\kaishu
+  非常出名的调和分析(实变方法)入门书, 勘误表及补充可见
+  \url{https://www.ams.org/publications/authors/books/postpub/gsm-29-errata4.pdf}.}
 
 \bibitem[{Fal}86]{falconer86}
 {Falconer, Kenneth J}.
@@ -66,5 +74,12 @@ G.~B. Folland.
 \newblock 高等教育出版社, 1980.
 \newblock {\par\small\kaishu 国内老牌的实分析教材,
   内容详实丰富, 可以与 \cite{Folland99} 的简明互补.}
+
+\bibitem[苗18]{miao2018}
+苗长兴.
+\newblock {\em 现代调和分析及其应用讲义}.
+\newblock 高等教育出版社, 2018.
+\newblock {\par\small\kaishu 简明, 内容丰富. \color{lightgray}
+  全是PDE.}
 
 \end{thebibliography}
