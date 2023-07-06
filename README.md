@@ -9,3 +9,5 @@
 [^1]: 一篇文章中多一个数学公式, 就会减少一半读者.
 
 [^Folland99]: G. B. Folland. _Real Analysis: Modern Techniques and their Applications_. John Wiley & Sons, 1999.
+
+![I Measure](https://github.com/InnocentFIVE/I-Measure/assets/104732548/ccb8f88a-99af-488b-a2bd-790faad294f7)
