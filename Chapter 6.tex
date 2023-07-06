@@ -3,7 +3,7 @@
     ``为解决已经提出的问题而非偏爱复杂事物, 我在书中引进一个积分定义, 该定义比 Riemann 积分更具普遍性, 并把 Riemann 积分作为一个特例.''\par\hfill ------\emph{Henri Lebesgue}
 \end{quote}
 
-测度上的积分自然是比 Riemann 更加一般. 事实上这种处理也可以把各种各样的求和(几乎一致地)统一在一起.
+测度上的积分自然是比 Riemann 积分更加一般. 事实上这种处理也可以把各种各样的求和(几乎一致地)统一在一起.
 
 在十九世纪八十年代之前, 分析学受到许多反例函数的冲击. 其中最出名的反例就是 Dirichlet 函数:
 \[
@@ -94,9 +94,9 @@
     .\]
 看起来用 $\sup$ 巧妙地避开了 Darboux 上下和碰不到的情形, 但一个极大的问题是, 我同样可以定义
 \[
-    \int f\,\hat{\d}\mu = \sup\Bigl\{\, \int \psi\, \hat{\d}\mu \Bigm| \psi \textit{ 是连续函数},\, 0\leqslant \psi \leqslant f\,\Bigr\}
+    \int f\,\hat{\mathrm d}\mu = \sup\Bigl\{\, \int \psi\, \hat{\d}\mu \Bigm| \psi \textit{ 是连续函数},\, 0\leqslant \psi \leqslant f\,\Bigr\}
     .\]
-因此又回到了那个问题: 在这个定义下隐藏的细节是什么? 在本文中上一个想要取代``面积''的例子是没能成功的 Jordan 容度. 因此我们不能胡乱地定义. 选择前者的其中一个原因是连续函数必须要求 $f$ 的底空间需要有一个拓扑, 而在一般的测度空间内我们完全可以不管拓扑; 另一个原因是: 他不能导出这个极其有用的定理:
+因此又回到了那个问题: 在这个定义下隐藏的细节是什么? 在本文中上一个想要取代``面积''的例子是没能成功的 Jordan 容度, 因此我们不能胡乱地定义. 一个最朴素, 直观的原因是测度上的积分对应了比Riemann积分更强的分解: 若$X=\bigcup_{\alpha \in A}U_ \alpha $, 则$f=\sum_{\alpha \in A}f\chi_{U_ \alpha }$. 直接类比Riemann积分: 其对应的是$U_ \alpha$是子区间的情形, 应此受制于连续性; 而测度上的积分只需$U_ \alpha $可测, 某种意义上会比Riemann积分更广阔些. 以及其能够导出下面这个定理:
 \begin{theorem}[单调收敛定理]
     令 $\{f_n\}_{n\geqslant 0}$ 是非负可测函数列, 则
     \[
@@ -236,7 +236,7 @@
 
 \begin{theorem}[Fubini, Tonelli]
     令 $f$ 是 $\mathbb R^n$ 上的可测函数, 则:
-    fubuni
+
     若 $f\geqslant 0$ 或 $f\in L(m^n)$\enote\enote, 则
     \[
         \int f \d m^n = \int\left(\,\cdots \!\int\left(\, \int f(x_1,\dots,x_n)\d x_1 \right) \d x_2\cdots \right)\d x_n\enote

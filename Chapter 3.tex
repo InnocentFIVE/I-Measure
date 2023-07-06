@@ -24,25 +24,25 @@
 \end{defi}
 Dirac 测度看上去简单, 但还是有用的. 对 Dirac 测度的积分可以视为是 Dirac $\delta $ 函数的严谨描述.
 
-存在性暂时解决了之后,剩下的就是关注测度的``值分布'', 我们关心的主要内容是这个函数会不会摸到 $\infty$. 显然 $\mu (X)$ 是最大的那个家伙, 如果 $\mu (X)$ 有限, 那么我们称这个测度为``\textbf{有限的}''; 如果 $\mu (X)=\infty$, 但是其可以分划成可数个\enote 测度有限集合之并, 则称测度为``\textbf{$\boldsymbol\sigma $-有限的}''. 事实上你可以这样认为, $\sigma $-有限的测度其实就是可数个有限的测度加起来. 虽然很容易攒到无穷, 但是有些性质是可以通过这种``加起来''从有限测度传递到\;$\sigma $-有限测度的\enote\enote.
+存在性暂时解决了之后,剩下的就是关注测度的``值分布'', 我们主要关心的内容是这个函数会不会摸到 $\infty$. 显然 $\mu (X)$ 是最大的那个家伙, 如果 $\mu (X)$ 有限, 那么我们称这个测度为``\textbf{有限的}''; 如果 $\mu (X)=\infty$, 但是其可以分划成可数个\enote 测度有限集合之并, 则称测度为``\textbf{$\boldsymbol\sigma $-有限的}''. 事实上你可以这样认为, $\sigma $-有限的测度其实就是可数个有限的测度加起来. 虽然很容易攒到无穷, 但是有些性质是可以通过这种``加起来''从有限测度传递到\;$\sigma $-有限测度的\enote\enote.
 
 
-现在我们要讨论的是测度的连续性------即使我们没有在 $X$ 上面赋予任何拓扑, 我们现在考虑的应当是``集合的极限''.
+现在我们要讨论的是测度的连续性------即使我们没有在 $X$ (或 $\mathcal P(X)$) 上面赋予任何拓扑, 我们现在考虑的应当是``集合的极限''.
 
 \begin{defi}[集合的极限]
     我们知道, $\mathbb R$ 中有这么一个序关系, 以及序列的上下极限:
     \[
         \liminf_{j\geqslant 0} a_j = \adjustlimits\sup_{n\geqslant 0}\inf_{j\geqslant n}a_j,\quad\limsup_{j\geqslant 0}a_j=\adjustlimits\inf_{n\geqslant 0}\sup_{j\geqslant n}a_j
         .\]
-    考虑到 $\mathbb R$ 中是以 $\leqslant $ 为序关系的. 那么不如在 $\mathcal P(X)$ 是引入以 $\subseteq$ 的序关系. 这样一来对集列 $\{A_n\}_{n\geqslant 0}$. 其 $\sup$ 自然要大于所有集合, 故包含所有集合中的元素, 即:
+    考虑到 $\mathbb R$ 中是以 $\leqslant $ 为序关系的. 那么不如在 $\mathcal P(X)$ 中引入 $\subseteq$ 对应的序关系. 这样一来对集列 $\{A_n\}_{n\geqslant 0}$. 其 $\sup$ 自然要大于所有集合, 故包含所有集合中的元素, 即:
     \[
         \sup_{n\geqslant 0}A_n =\bigcup_{n\geqslant 0} A_n,\,\text{\kaishu 同理}\,    \inf_{n\geqslant 0}A_n =\bigcap_{n\geqslant 0} A_n\mbox{\enote}.
     \]
-    直接把符号代如上下极限得到:
+    直接把符号代入上下极限得到:
     \[
         \liminf_{j\geqslant 0} A_j = \adjustlimits\bigcup_{n\geqslant 0}\bigcap_{j\geqslant n}A_j,\quad\limsup_{j\geqslant 0} A_j=\adjustlimits\bigcap_{n\geqslant 0}\bigcup_{j\geqslant n}A_j.
     \]
-    如果一个集列真有极限, 那么只能是 $\liminf_{j\geqslant 0} A_j=\limsup_{j\geqslant 0} A_j$. 一般上升集或者下降集(就是逐步变大 / 变小的集合)极限是自然存在的, 分别为 $\bigcup_{j\geqslant 0} A_j$ 与 $\bigcap_{j\geqslant 0} A_j$.
+    如果一个集列极限存在, 那么只能当且仅当 $\liminf_{j\geqslant 0} A_j=\limsup_{j\geqslant 0} A_j$. 一般上升集或者下降集(就是逐步变大 / 变小的集合)极限是自然存在的, 分别为 $\bigcup_{j\geqslant 0} A_j$ 与 $\bigcap_{j\geqslant 0} A_j$.
 \end{defi}
 在此情形, 我们就可以讨论测度的连续性. 我们先从比较简单的上升 / 下降集开始.
 
@@ -61,7 +61,7 @@ Dirac 测度看上去简单, 但还是有用的. 对 Dirac 测度的积分可以
               \end{aligned}
           \]
           但此式仅在 $\mu (X)<\infty$ 才能保证成立. 同理, 用 $\bigcup_{n\geqslant 0}E_n=E_1$ 代替 $X$ 也是一样的结果.
-    \item 现在我们讨论上下极限, 这意味着我们要考虑更一般的情形. 令 $\{E_n\}_{n\geqslant 0}$ 是集列, 则 $\liminf_{j\geqslant 0} \mu (E_j)\geqslant \mu (\liminf_{j\geqslant 0} E_j)$, 我们管这叫下半连续性. 反之, 考虑 $\mu (\bigcup_{n\geqslant 0}E_j)$ 有限情形亦有 $\mu (\limsup_{j\geqslant 0} E_j)  \geqslant \limsup _{j\geqslant 0}\mu (E_j)$, 即下半连续性.
+    \item 现在我们讨论上下极限, 这意味着我们要考虑更一般的情形. 令 $\{E_n\}_{n\geqslant 0}$ 是集列, 则 $\liminf_{j\geqslant 0} \mu (E_j)\geqslant \mu (\liminf_{j\geqslant 0} E_j)$, 我们管这叫下半连续性. 反之, 考虑 $\mu (\bigcup_{n\geqslant 0}E_j)$ 有限情形亦有 $\mu (\limsup_{j\geqslant 0} E_j)  \geqslant \limsup _{j\geqslant 0}\mu (E_j)$, 即上半连续性.
 
           证明思路其实很简单, 只需把 $\liminf$, $\limsup$ 之流用 $\sup$, $\inf$ 等价替换即可:
           \begin{gather*}

@@ -4,17 +4,17 @@
     零测集\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,就像是被冻住的青蛙, 应该和英吉利牛肉一起冰冻冷藏起来, 不再看见.
 \end{quote}
 
-在历史中, ``外测度''这一思想出现得比``测度''之概念要早, 早在 Riemann 积分时期我们就已经有这种``外测''的思想了: 一个著名的例子是 Jordan 容度. 令``简单集合''是平面 $\mathbb R^2$ 上由有限个矩形边挨着边拼成的集合. 令
+在历史中, ``外测度''这一思想出现得比如今的``测度''概念要早, 早在 Riemann 积分时期我们就已经有这种``外测''的思想了: 一个著名的例子是 Jordan 容度. 令``简单集合''是平面 $\mathbb R^2$ 上由有限个矩形边挨着边拼成的集合. 令
 \[
     \operatorname{out}\operatorname{area} A\coloneqq\bigcap_{\mkern-8mu K,\textit{简单集合}\mkern-8mu \atop A\subseteq K}K
     .\]
 同时, 由于``简单集合''的面积是可以良好定义的------所有组成``简单集合''的矩形面积之和. 记为 $\|K\|$. 则定义 $A$ 的 Jordan 外容度为
 \[
-    \operatorname{out}\operatorname{cont}A\coloneqq \inf\bigl\{\, \|K\| \bigm| K~\textit{是简单集合},\,A\subseteq K\,\bigr\}.
+    \operatorname{out}\operatorname{cont}A\coloneqq \inf\set{\|K\| \given K~\textit{是简单集合},\,A\subseteq K}.
 \]
 同时对内部的情形亦然:
 \[
-    \operatorname{inn}\operatorname{area} A\coloneqq \bigcup_{\mkern-8mu K,\textit{简单集合}\mkern-8mu \atop K\subseteq A}K\enote,\quad\operatorname{inn}\operatorname{cont}A\coloneqq \sup\bigl\{\, \|K\| \bigm| K~\textit{是简单集合},\,K\subseteq A\,\bigr\}.
+    \operatorname{inn}\operatorname{area} A\coloneqq \bigcup_{\mkern-8mu K,\textit{简单集合}\mkern-8mu \atop K\subseteq A}K\enote,\quad\operatorname{inn}\operatorname{cont}A\coloneqq \sup\set{\|K\| \given K~\textit{是简单集合},\,K\subseteq A}.
 \]
 这本应该是测度的直观思想, 但事实上有太多细节没有在这个定义处理到\enote.
 
@@ -30,21 +30,21 @@
 
 更``外测''的想法来自 Axel Harnack\enote, 他用有限个区间覆盖我们想要讨论的集合 $A$, 然后计算这些区间的总长度, 最后和 Jordan 容度一样他取了 $\inf$ 以保证估计尽可能精确:
 \[
-    \operatorname{vol}A = \inf\Bigl\{ \,\sum_{j=0}^n(b_j-a_j)\Bigm| A\subseteq\bigcup_{j=0}^n(a_j,b_j\,]\, \Bigr\} .
+    \operatorname{vol}A = \inf\set[\Big]{\sum_{j=0}^n(b_j-a_j)\given A\subseteq\bigcup_{j=0}^n(a_j,b_j]}.
 \]
 这个处理与 Jordan 容度异曲同工. 同时如果他没有定义内测度的话, 我们也可以用 $\operatorname{vol}$ 代替集合的``测度''而忽略什么不可测集. 但是 Harnack 的处理对以上讨论的无限稠密集依然会出问题:
 
-和 Jordan 容度的讨论一样, 我们得到 $\operatorname{vol}([\,0,1\,]\cap\mathbb Q)$, 但是对无理数 $[\,0,1\,]\setminus\mathbb Q$ 会得到一样的结果, 这意味着:
+和 Jordan 容度的讨论一样, Harnack的定义也在稠密可数集$\mathbb Q$上栽了跟头. 仿照上述讨论, 我们得到 $\operatorname{vol}([\,0,1\,]\cap\mathbb Q)=1$, 但是对无理数 $[\,0,1\,]\setminus\mathbb Q$ 讨论会得到一样的$\operatorname{vol}$结果, 这意味着:
 \[
     \operatorname{vol}([\,0,1\,]\cap\mathbb Q) + \operatorname{vol}([\,0,1\,]\setminus\mathbb Q) = 2 \neq \operatorname{vol}([\,0,1\,])
     .\]
-这直戳了当地告诉我们这不是个测度, 虽然在那个年代``测度''这个词并不是现在这个意思, 但作为连最基本要求有限可加性都做不到还是算了吧\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,总不能把 $[\,0,1\,]\cap\mathbb Q$ 和 $[\,0,1\,]\setminus\mathbb Q$ 视为不可测集.
+这直戳了当地告诉我们这不是个测度, 虽然在那个年代``测度''这个词并不是现在这个意思, 但作为连最基本要求有限可加性都做不到还是算了吧\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,总不能把 $[\,0,1\,]\cap\mathbb Q$ 和 $[\,0,1\,]\setminus\mathbb Q$ 视为不可测集吧?
 
 到了现在我们发现, 虽然测度的定义是易于理解的, 但是要找的一个在 $\mathbb R$ 上的测度让其对应的可测集尽可能大是困难的, 这也是 Lebesgue 在 1902 年那篇论文中的精髓.
 
-Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``可数个区间'':
+Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``可数个区间'', 且允许在合理的情形下处理$\infty$:
 \[
-    m(A) = \inf\Bigl\{ \,\sum_{j\geqslant 0}(b_j-a_j)\enote\Bigm| A\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\enote \Bigr\}
+    m(A) = \inf\set[\bigg]{\sum_{j\geqslant 0}(b_j-a_j)\enote\given A\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\enote}
 \]
 虽然看上去是个平凡的举措, 但是却打败了上面的反例: 令 $\{r_n\}_{n\geqslant 0}$ 是 $[\,0,1\,]\cap\mathbb Q$ 的一个排列, 则 $\forall\varepsilon>0$, $[\,0,1\,]\cap\mathbb Q\subseteq\bigcup_{n\geqslant 0}(r_n-\varepsilon/2^n,r_n+\varepsilon/2^n)$, 故 $m([\,0,1\,]\cap\mathbb Q)<2\varepsilon$. 取极限得到 $m([\,0,1\,]\cap\mathbb Q)=0$.
 
@@ -52,7 +52,7 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 
 考虑一下抽象的情形: 令 $\mathscr A\subseteq\mathcal P(X)$ 是基础集合\enote, 我们意欲用 $\mathscr A$ 中集合来度量 $\mathcal P(X)$ 之子集. 借以 Lebesgue 构建外测度的方法\enote:
 \[
-    \mu^*(E) = \inf\Bigl\{ \,\sum_{j\geqslant 0}\rho (A_j)\Bigm| E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathscr A\, \Bigr\}
+    \mu^*(E) = \inf\set[\Big]{\sum_{j\geqslant 0}\rho (A_j)\given E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathscr A}
     .\]
 其中 $\rho :\mathscr A\to [\,0,\infty\,]$ 是对基础集合的度量.
 
@@ -97,7 +97,7 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 
 因此, 完备的测度可以让大家在处理零测集的时候排除几乎所有的风险, 也是更符合直觉的测度. 对于不完备的测度, 我们可以通过一个暴力的方式来进行``完备化''. ``完备化''的精髓在于将零测集的子集全部加入可测集合构成的那个\;$\sigma $-代数之中. 令 $(X,\mathcal M,\mu )$ 是测度空间和其上的一个测度, 我们令
 \[
-    \overline{\mathcal M} = \bigl\{\, A\cup B\bigm|  A\in\mathcal M,\, B \textit{ 是某个\;$\mu $-零测集的子集}\,\bigr\}\enote.
+    \overline{\mathcal M} = \set[\big]{A\cup B\given  A\in\mathcal M,\, B \textit{ 是某个\;$\mu $-零测集的子集}}\enote.
 \]
 在这个新\;$\sigma $-代数中我们定义一个延拓的测度 $\overline\mu(A\cup B) \coloneqq \mu (A)$\enote, 其中 $A\in\mathcal M$ 是可测集, $B$ 是某个\;$\mu $-零测集的子集.
 
@@ -118,7 +118,7 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 \begin{enumerate}
     \item 先有一个``基本集合族'' $\mathscr A\subset\mathcal P(X)$, $X\in\mathscr A$;
     \item 然后是一个对此类集合的度量 $\rho :\mathscr A\to [\,0,\infty\,]$;
-    \item 然后是外测度本身的构建: \[\mu^*(E) = \inf\Bigl\{ \,\sum_{j\geqslant 0}\rho (A_j)\Bigm| E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathscr A\, \Bigr\};\]
+    \item 然后是外测度本身的构建: \[\mu^*(E) = \inf\set[\Big]{\sum_{j\geqslant 0}\rho (A_j)\given E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathscr A};\]
     \item 接下来是用 Carathéodory 定理将其可测集拿出来, 构成一个\;$\sigma $-代数 $\mathcal M$;
     \item 最后我们马后炮地说 $\mu^*|_{\mathcal M}$ 是一个定义在该\;$\sigma $-代数上的(完备)测度.
 \end{enumerate}
@@ -134,7 +134,7 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 
 最后是完整的 Lebesgue 测度构建过程: 让我们一步到位: 考虑外测度
 \[
-    \mu ^*(E) = \inf\Bigl\{ \,\sum_{j\geqslant 0}(b_j-a_j)\Bigm| E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\, \Bigr\}
+    \mu ^*(E) = \inf\set[\Big]{\sum_{j\geqslant 0}(b_j-a_j)\given E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]}.
 \]
 然后我们知道, 这个外测度的可测集构成一个\;$\sigma $-代数 $\mathcal L$, 因此令 $m:\mathcal L\to [\,0,\infty\,]$, $E\mapsto \mu ^*(E)$. 我们的 Lebesgue 测度就构造完成了!
 
@@ -142,7 +142,7 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 
 一个比较机灵的举措是, 我们注意到 $(a,b)$ 作为开区间是可测的, 由于可测集合构成一个\;$\sigma $-代数, 其必然包括由开集生成的 Borel\;$\sigma $-代数 $\mathcal B_{\mathbb R}$\enote. 然后就是一个比较肮脏的技巧: 令 $ \beta = m|_{\mathcal B_{\mathbb R}}$, 则其是个正经的测度, 我们用外测度延拓它:
 \[
-    \beta ^*(E) = \inf\Bigl\{ \,\sum_{j\geqslant 0}\beta (A_j)\Bigm| E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathcal B_{\mathbb R}\, \Bigr\}
+    \beta ^*(E) = \inf\set[\Big]{\sum_{j\geqslant 0}\beta (A_j)\given E\subseteq\bigcup_{j\geqslant 0}A_j,\,A_j\in\mathcal B_{\mathbb R}}
     .\]
 我们发现 $\beta ^*=m$. 因为
 \begin{itemize}
@@ -151,15 +151,15 @@ Lebesgue 改进了 Harnack 的定义------他把``有限个区间''换成了``�
 \end{itemize}
 然后我们直接奔向完备化------因为这个更能描述可测集中的元素. 即 $\overline{\mathcal B_{\mathbb R}}=\mathcal L$. 因此 $\mathcal L$ 中的元素必然是 $A\cup B$ 的形式, 其中 $A$ 是 Borel 集合, $B$ 是 Lebesgue 零测集.
 
-Borel 集这一处理意味着我们有将上文中的 $A$ 换成更简洁的, 更具有构造性的集合. 在一些尝试过后, 我们得到了以下定理:
+Borel 集这一处理暗示我们也许可以将上文中的 $A$ 换成更简洁的, 更具有构造性的集合. 在一些尝试过后, 我们得到了以下定理:
 \begin{theorem}\label{AcupN}
     $E\subseteq\mathbb R$ 是 Lebesgue 可测的当且仅当 $E = A\cup N$, 其中 $A$ 是可数个闭集的并, $N$ 是 Lebesgue 零测集. 或者当且仅当 $E=B\setminus N$, 其中 $B$ 是可数个开集的交, $N$ 是 Lebesgue 零测集.
 \end{theorem}
 以及极具外(和内)测度意义的(我们称为正规性)
 \[
     \begin{aligned}
-        m(E) & =\inf\bigl\{\,m(A)\bigm| E\subseteq A, A\textit{ 是 $\mathbb R$ 中的开集}\,\bigr\}   \\
-             & = \sup\bigl\{\,m(A)\bigm| A\subseteq E, A\textit{ 是 $\mathbb R$ 中的紧集}\,\bigr\}.
+        m(E) & = \inf\set[\big]{m(A)\given E\subseteq A, A\textit{ 是 $\mathbb R$ 中的开集}}   \\
+             & = \sup\set[\big]{m(A)\given A\subseteq E, A\textit{ 是 $\mathbb R$ 中的紧集}}.
     \end{aligned}
 \]
 当然, 考虑到 $(a,b)$ 的测度是平移不变的, 那么自然对由开区间生成的外测度也是平移不变的\enote. 同理, 令 $T$ 是数乘变换, 则 $m(E)=|\!\det T|\cdot m(E)$, $E\in\mathcal L$.

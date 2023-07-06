@@ -11,28 +11,28 @@
     \begin{itemize}
         \item $\varnothing\in \mathcal M$;
         \item $A\in\mathcal M\implies A^\complement\in \mathcal M$;
-        \item $A$, $B\in \mathcal M\implies A\cup B\in\mathcal M$.
+        \item $A,B\in \mathcal M\implies A\cup B\in\mathcal M$.
     \end{itemize}
     我们管这样的集合称为代数, 如果还满足 $\{A_n\}_{n\geqslant 0}\subseteq\mathcal M$, $\bigcup_{n\geqslant 0} A_n\in\mathcal M$. 则我们管它叫\;$\sigma $-代数. 同时, 由于$\sigma $-代数和测度联系在一起, 我们命 $(X,\mathcal M)$ 为测度空间.
 \end{defi}
 由此可见, 我们的``可测集''至少得构成一个\;$\sigma $-代数, 这样才有比较丰富的讨论价值. 但问题是,\;$\sigma $-代数是不好处理的------其上面的定义并不能让我们有直观感受, 我们在此举一些例子:
 \begin{description}
     \item[平凡的例子] 比如说 $\mathcal P(x)$ 本身或者 $\{\varnothing,X\}$.
-    \item[可数-余可数\;$\boldsymbol\sigma $-代数] 令 $\mathcal M=\bigl\{\,A\subseteq X\bigm| A\textit{ 可数或~} A^\complement\textit{ 可数}\,\bigr\}$.
+    \item[可数-余可数\;$\boldsymbol\sigma $-代数] 令 $\mathcal M=\set[\big]{A\subseteq X\given A\textit{ 可数或~} A^\complement\textit{ 可数}}$.
 \end{description}
 考虑到\;$\sigma $-代数的抽象性, 我们急需使用新的方法来表征\;$\sigma $-代数, 这个方法其实就是老生常谈的``生成''. 我们先回顾下($\mathbb F$ 上)线性空间的生成:
 
 一组向量 $b_1,\dots,b_n$ 生成的子空间是包含 $b_1,\dots,b_n$ 的最小子空间, 而这个子空间有明确的构造:
 \[
-    \left<b_1,\dots,b_n \right> \coloneqq \biggl\{\, \sum_{j=1}^n x_jb_j \biggm| x_1,\dots,x_n\in\mathbb F \,\biggr\}
+    \left<b_1,\dots,b_n \right> \coloneqq \set[\bigg]{\sum_{j=1}^n x_jb_j \given x_1,\dots,x_n\in\mathbb F}
     .\]
 因此对这个``子空间''的研究可以通过对 $b_1,\dots,b_n$ 的研究来实现. 至于对无穷个(甚至不可数个)向量 $\{b_ \alpha \}_{\alpha\in A}$ 张成的子空间, 我们并不能那么方便地构造, 而且构造方法和有限情形有不少区别, 我们唯一知道的情形是其生成的子空间是包含这无穷个向量的最小子空间, 因此我们只能定义为:
 \[
-    \mathop{\text{``min\kern-.1ex''}}\bigl\{\,E \textit{ 是子空间} \bigm| \forall\alpha\in A,\, b_ \alpha \in E\,\bigr\}
+    \mathop{\text{``min\kern-.1ex''}}\set[\big]{E \textit{ 是子空间} \given \forall\alpha\in A,\, b_ \alpha \in E}
     .\]
 为了实现这里的 $\min$, 由于子空间的任意交都是子空间. 因此所有子空间的交必然会退化到最小的那一个子空间:
 \[
-    \mathop{\text{``min\kern-.1ex''}}\bigl\{\,E \textit{ 是子空间} \mid \forall\alpha\in A,\,b_ \alpha \in E\,\bigr\} = \bigcap_{E,\textit{子空间}\atop \mkern-8mu\forall\alpha\in A, b_ \alpha \in E\mkern-8mu}E
+    \mathop{\text{``min\kern-.1ex''}}\set[\big]{E \textit{ 是子空间} \mid \forall\alpha\in A,\, b_ \alpha \in E} = \bigcap_{E,\textit{子空间}\atop \mkern-8mu\forall\alpha\in A, b_ \alpha \in E\mkern-8mu}E
     .\]
 回到对\;$\sigma $-代数的处理上来, 由于\;$\sigma $-代数的任意交仍然是\;$\sigma $-代数. 因此定义由子集生成的\;$\sigma $-代数为:
 \begin{defi}[$\sigma$-代数的生成]
@@ -40,7 +40,7 @@
     \[
         \bigcap_{\mathcal M, \sigma\text{-代数}\atop A\subseteq \mathcal M}\mathcal M \eqqcolon \mathcal M(A)
         .\]
-    大家都喜欢这样子表示``生成''\,\enote. 特别地, 生成元也可以某种程度上地简化: 如果存在另外一个集合 $B\subseteq A\subseteq\mathcal P(X)$, $A\subseteq\mathcal M(B)$, 由于 $B\subseteq A\implies \mathcal M(B)=\mathcal M(A)$ 和 $A\subseteq\mathcal M(B)\implies \mathcal M(A)\subseteq\mathcal M(B)$. 故 $\mathcal M(A)=\mathcal M(B)$.
+    大家都喜欢这样子表示``生成''\,\enote. 特别地, 生成元也可以某种程度上地简化: 如果存在另外一个集合 $B\subseteq A$, $A\subseteq\mathcal M(B)$, 由于 $B\subseteq A\implies \mathcal M(B)\subseteq\mathcal M(A)$ 和 $A\subseteq\mathcal M(B)\implies \mathcal M(A)\subseteq\mathcal M(B)$. 故 $\mathcal M(A)=\mathcal M(B)$.
 \end{defi}
 这样我们可以通过讨论\;$\sigma $-代数的生成元来讨论\;$\sigma $-代数, 如果这些生成元是有限(此时其生成的\;$\sigma $-代数也是有限的, 你可以认为是这有限个集合之间随意地交组成的``原子''集合的并)或者可数的, 那就更好了.
 
@@ -50,18 +50,18 @@
 \end{defi}
 一个特殊的 Borel 集的例子是 $\mathbb R$ 上的 Borel 集. 由于 $\mathbb R$ 上的开集都是至多可数个开区间之并, 故 $\mathbb R$ 上开集生成的\;$\sigma $-代数与开区间生成的\;$\sigma $-代数一致. 也即:
 \[
-    \mathcal  B_{\mathbb R} = \mathcal M\left( \{\, (a,b)\subseteq\mathbb R\mid a<b\,\} \right)
+    \mathcal  B_{\mathbb R} = \mathcal M\left( \set{ (a,b)\subseteq\mathbb R\given a<b}\right)
     .\]
 另外一个有用的例子是 $\mathbb R^n$ 中的 Borel\;$\sigma $-代数, 由定义自然知道是其开集生成的\;$\sigma $-代数, 我们现在应当用某种方法(正如在 $\mathbb R$ 中一样用开区间简化开集那样)简化开集的表示\enote. 事实上, $\mathbb R^n$ 中所有的开集都可以用可数个开矩形并起来得到.
 
 选择开集 $O$ 中所有的有理点 $\mathbb Q^n\cap O$. 则在每个 $x\in \mathbb Q^n\cap O$ 都生成可数个开正方体 $T(x,r)$, $r$
 扫遍 $\mathbb Q$. 令
 \[
-    O_{\mathbb Q}\coloneqq \left\{\, T(x,r) \mid x\in\mathbb Q^n\cap O,\,r\in\mathbb Q,\,T(x,r)\subseteq O\,\right\}
+    O_{\mathbb Q}\coloneqq \set{T(x,r) \given x\in\mathbb Q^n\cap O,\,r\in\mathbb Q,\,T(x,r)\subseteq O}
     .\]
 则显然 $O=O_{\mathbb Q}$. 因此, $\mathbb R$ 中所有的开集都可以用可数个开矩形并起来得到. 故:
 \[
-    \mathcal B_{\mathbb R^n} = \mathcal M\left( \left\{ \,T(x,r)\mid x\in\mathbb Q^n,\,r\in\mathbb Q\, \right\}  \right)
+    \mathcal B_{\mathbb R^n} = \mathcal M\left( \set{T(x,r)\given x\in\mathbb Q^n,\,r\in\mathbb Q}\right)
     .\]
 当然, 我们用各种各样形状的邻域(而不只是开矩形)都可以得到这样的结果, 用开矩形只是因为开矩形是 $\mathbb R$ 中开区间之乘积.
 

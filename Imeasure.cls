@@ -1,7 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Imeasure}
 \LoadClass[twoside, fontset=fandol]{ctexart}
-
 \RequirePackage[svgnames]{xcolor}
 \ctexset {
     section = {
@@ -10,11 +9,14 @@
       format = \large\bfseries,
      }
 }
-\RequirePackage[nolimits]{cmupint}
 \RequirePackage[b5paper]{geometry}
 \RequirePackage[scr=boondox]{mathalpha}
+\RequirePackage{dsfont}
+\DeclareMathAlphabet{\mathbb}{U}{dsrom}{m}{n}
+\def\mathalfa@bbscaled{7}
 \RequirePackage{amsmath,amsfonts,amssymb,amsthm,euscript,fontspec,tocloft,fancyhdr,mathtools,enumitem,pgfplots,tikz-cd,xeCJKfntef,endnotes}
 \RequirePackage{fixdif}
+\RequirePackage{etoolbox}
 \RequirePackage{expl3,xparse}
 \RequirePackage[
     colorlinks,
@@ -36,6 +38,7 @@
 \setmainfont{lmroman10-regular.otf}[
     BoldFont = lmromandemi10-regular.otf,
     ItalicFont = lmroman10-italic.otf,
+    SmallCapsFont = lmromancaps10-regular.otf,
     SizeFeatures = {
             {Size = {-9}, Font = lmroman8-regular.otf},
             {Size = {9-14}, Font = lmroman10-regular.otf},
@@ -72,16 +75,23 @@
 \newcommand\dif{\mathrel{\triangle}}
 \renewcommand{\arraystretch}{.9}
 \renewcommand\mathcal[1]{\EuScript{#1}}
-\providecommand\given{}
-\newcommand\SetSymbol[1][]{%
-    \nonscript\:#1\vert
+\makeatletter
+\newcommand \given{}
+\newcommand \setskip{\,}
+\newcommand \SetSymbol[1][]{%
+    \nonscript\setskip#1\vert
     \allowbreak
-    \nonscript\:
+    \nonscript\setskip
     \mathopen{}}
-\newcommand{\setskip}{\,}
-\DeclarePairedDelimiterX\set[1]{\{}{\}}%
-{\renewcommand\given{\SetSymbol[\delimsize]}\setskip#1\setskip\mathopen{}}
-\newcommand{\SET}[1][\,]{\renewcommand{\setskip}{#1}\set}
+\DeclarePairedDelimiterX\@set[1]{\{}{\}}%
+{\renewcommand\given{\SetSymbol[\delimsize]}%
+    \setskip#1\setskip\mathopen{}}
+\DeclareDocumentCommand{\@set@nostar}{O{}O{\,}m}{%
+\renewcommand{\setskip}{#2}\@set[#1]{#3}}
+\DeclareDocumentCommand{\@set@star}{O{\,}m}{%
+\renewcommand{\setskip}{#1}\@set∗{#2}}
+\newcommand\set{\@ifstar\@set@star\@set@nostar}
+\makeatother
 
 % Layout settings
 
@@ -162,6 +172,7 @@
     \begin{quote}
         饱含魔力的土地下\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,
     \end{quote}
+    直接读尾注也是可以的. 不过尾注并没有按照知识的顺序来, 而是零散得不成样子.\bigskip
 }
 % Make endnotes ``hyperrefiable'' From https://tex.stackexchange.com/questions/8452/making-endnotes-clickable-links-with-hyperref
 \newif\ifenotelinks
@@ -290,13 +301,24 @@
 \newtheoremstyle{innocent}{}{}
 {\rmfamily\kaishu}{}
 {\sffamily\bfseries}{}
-{ }{\thmname{#1}\thmnumber{ #2}\,\mdseries\rmfamily\thmnote{$\left(\,\mbox{#3}\,\right) $}.~}
+{ }{\thmname{#1}\thmnumber{ #2}\,\mdseries\rmfamily\thmnote{$\left(\,\mbox{#3}\,\right) $.}~}
 \theoremstyle{innocent}
 \newtheorem*{theorem}{定理}
 \newtheorem*{prop}{命题}
 \newtheorem*{cor}{推论}
 \newtheorem*{tempdefi}{定义}
-\newenvironment*{defi}{\begin{tempdefi}}{\kern1ex\ifvmode\par\vskip-\bigskipamount\hfill$\lrcorner$\else\mbox{}\hfill$\lrcorner\,$\fi\end{tempdefi}}
+\newsavebox\tempdefibox
+\savebox\tempdefibox{\quad$\lrcorner$}
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+            \hbox{}\nobreak\hfil#1%
+            \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+% \newsavebox\mybox
+% \newenvironment{aquote}[1]
+%   {\savebox\mybox{#1}\begin{quote}}
+%   {\signed{\usebox\mybox}\end{quote}}
+\newenvironment*{defi}{\begin{tempdefi}}{\signed{\usebox\tempdefibox}\end{tempdefi}}
 
 
 % CFT settings
@@ -327,6 +349,10 @@
 % ctex settings
 
 \renewcommand \cleardoublepage{\clearpage \if@twoside \ifodd \c@page \else \hbox {\thispagestyle{empty}}\newpage \if@twocolumn \hbox {\thispagestyle{empty}}\newpage \fi \fi \fi}
+\xeCJKsetup{
+    CJKecglue = {\hskip 0.2em plus 0.08\baselineskip},
+    xCJKecglue = true
+}
 \ctexset {
     section = {
       name = {第,节},
@@ -357,4 +383,3 @@
 \NewDocumentCommand { \Kenote } {} { \exp_args:Nx \loadendnote{\l_alterendb_tl} \tl_gset:Nx \l_alterendb_tl { \int_eval:n { \l_alterendb_tl + 1 } }}
 \NewDocumentCommand { \enote } {} {\endnote{\Kenote}\ignorespaces}
 \ExplSyntaxOff
-

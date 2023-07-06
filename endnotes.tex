@@ -79,9 +79,9 @@
 \begin{alterendnote}
     事实上 Lebesgue 测度性质比较好, 其零测集的子集必然可测. 这个性质被称为``完备性'', 我们将在\hyperref[外测度与测度的完备化]{第五节}中涉及.
 \end{alterendnote}
-\begin{alterendnote}
-    一个造成其繁琐的原因是我们总有办法让这个零测集子集某种意义上``可测'', 见后文测度完备化的内容.
-\end{alterendnote}
+% \begin{alterendnote}
+%     一个造成其繁琐的原因是我们总有办法让这个零测集子集某种意义上``可测'', 见后文测度完备化的内容.
+% \end{alterendnote}
 \begin{alterendnote}
     事实上, 我们对性质良好的集合可以证明 $\operatorname{inn}\operatorname{area}$, $\operatorname{out}\operatorname{cont}$ 与其的关系: 若 $A$ 是 $\mathbb R^n$ 中的开集, 则 $\operatorname{inn}\operatorname{area}A=A$; 若 $A$ 是 $\mathbb R^n$ 中的紧集, 则 $\operatorname{out}\operatorname{area}A=A$.
 \end{alterendnote}
@@ -96,7 +96,7 @@
         \end{cases}\] 的 Riemann 积分是不存在的.
 \end{alterendnote}
 \begin{alterendnote}
-    和历史的进程一样, Harnack 考虑的``外测度''一开始也只是处理 $\mathbb R$ 上的情形, 我们在这里暂时忽略不单纯的 $\mathbb R^2$, 只处理 $\mathbb R$ 上的情形.
+    和历史的进程一样, Harnack 考虑的``外测度''一开始也只是处理 $\mathbb R$ 上的情形, 我们在这里暂时先不管不单纯的 $\mathbb R^n$, 只处理 $\mathbb R$ 上的情形.
 \end{alterendnote}
 \begin{alterendnote}
     这里的 $(b_j-a_j)$ 也能换成 $F(b_j)-F(a_j)$, 其中 $F$ 是一个右连续单增函数, 我们管它叫``分布''. 比如令 $F=(\mathord{\arctan} + \pi /2)/2\pi $, 则 $F$ 是一个概率分布. 对于一般的 $F$, 我们管这样子定义的测度(在延拓之后)叫 Lebesgue\,--\,Stieltjes 测度, 直观上来看, 就相当于把 $\mathbb R$ 拉长缩短变形, 而在每点变形(缩涨)的程度刚好是 $F$ 的导数(事实上, $F$ 是几乎处处有导数的, 也就是 $F$ 不可导的点组成一个 Lebesgue 零测集).
@@ -109,13 +109,13 @@
 \end{alterendnote}
 \begin{alterendnote}
     除了我们将要探讨的 Lebesgue 测度, 另一个著名的外测度例子是 $\mathbb R^n$ 上的 Hausdorff 测度($\operatorname{diam}$ 是球的直径):\[
-        H^s_\delta(E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}(\operatorname{diam}C_j)^s\Bigm| C_j\textit{ 是直径不大于 $\delta $ 的球体},\, E\subseteq\bigcup_{j\geqslant 0}C_k\, \Bigr\}.\]这个测度和分形维数相关, 或者我们可以称为``$s$ 维对应的\;$\delta $-外测度''. 一个例子是 Cantor 集 $C$, 令
+        \mathcal H^s_\delta(E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}(\operatorname{diam}C_j)^s\Bigm| C_j\textit{ 是直径不大于 $\delta $ 的球体},\, E\subseteq\bigcup_{j\geqslant 0}C_k\, \Bigr\}.\]这个测度和分形维数相关, 或者我们可以称为``$s$ 维对应的\;$\delta $-外测度''. 一个例子是 Cantor 集 $C$, 令
     \[
-        H^s(C) = \lim_{\delta \to 0^+}H^s_\delta(C).
+        \mathcal H^s(C) = \lim_{\delta \to 0^+}\mathcal H^s_\delta(C).
     \]
     是 $C$ 对应的 $s$ 维 Hausdorff 外测度. 可以证明 $\exists t>0$,
     \[
-        H^s(C) = \begin{cases}
+        \mathcal H^s(C) = \begin{cases}
             \infty, & s<t, \\
             0,      & s>t.
         \end{cases}
@@ -142,18 +142,29 @@
             0,              & x=0, \\
             \mu ((0,x\,]),  & x>0.
         \end{cases}\]同时分布可以决定一个 Lebesgue\,--\,Stieltjes 测度.
-    \[\mu^F (E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}\bigl(F(b_j)-F(a_j)\bigr)\Bigm| E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\, \Bigr\}\]
+    \[\mu^F (E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}\bigl(F(b_j)-F(a_j)\bigr)\Bigm| E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\, \Bigr\}.\]
     而此种情况下事实上有 $\mu ^{F_\mu}=\mu $.
 
     考虑看起来(相比 Lebesgue 测度)不完备的 Borel\;$\sigma $-代数上的测度上的的一个重要性是很多特殊的测度的可测集都包含 $\mathcal B_{\mathbb R}$(毕竟是开集生成的\;$\sigma $-代数), 比如 Lebesgue\,--\,Stieltjes 测度. 而很多与 Lebesgue 测度相关的性质可以同样下放到一般的 Lebesgue\,--\,Stieltjes 测度上. 比如:\[\begin{aligned}
             \mu (E) & =\inf\bigl\{\, \mu (A)\bigm| E\subseteq A,\,A\textit{ 是 $\mathbb R$ 中的开集}\,\bigr\}   \\
                     & = \sup\bigl\{\, \mu (A)\bigm| A\subseteq E,\,A\textit{ 是 $\mathbb R$ 中的紧集}\,\bigr\}.
         \end{aligned}\]
-    另外一个有趣例子是 $\lim_{h \to 0} (\mu / m)((x,x+h\,]) = \lim_{h \to 0} (F(x+h)-F(h))/h$ 对应的是 $F$ 的导数(当然对于这样的 $F$ 我们可以要求其不是单增的, 此时就需要考虑符号测度或者复测度). 至于真正处理此类两个测度之比值大概会在 Euclid 空间微分定理相关内容中涉及. 一个经典的例子是: 单调(或有界变差的)函数必然是几乎处处可导的------其隐晦地告诉我们可以将``沿曲线积分''的曲线从方便讨论的分段可微曲线推广成连续可求长曲线. 或者对任何一般的 Lebesgue 可积函数(关于什么是``可积''可以看后文, 事实上这里的可以也可以换成是``局部可积'', 也就是在区间 $[\,a,b\,]$ 上可积), 我们有
+    另外一个有趣例子是 $\lim_{h \to 0} (\mu / m)((x,x+h\,]) = \lim_{h \to 0} (F(x+h)-F(h))/h$ 对应的是 $F$ 的导数(当然对于这样的 $F$ 我们可以要求其不是单增的, 此时就需要考虑符号测度或者复测度). 至于真正处理此类两个测度之比值大概会在 Euclid 空间微分定理相关内容中涉及, 一个经典的例子是: 单调(或有界变差的)函数必然是几乎处处可导的------其隐晦地告诉我们可以将``沿曲线积分''的曲线从方便讨论的分段可微曲线推广成连续可求长曲线. 或者对任何一般的 Lebesgue 可积函数(关于什么是``可积''可以看后文, 事实上这里的可以也可以换成是``局部可积'', 也就是在区间 $[\,a,b\,]$ 上或紧集内可积), 我们有
     \[
         \lim_{r\to 0} \frac{1}{m(N_r(x))}\int_{N_r(x)} f = f(x),\quad N_r(x) = \{\,y\mid |y-x|<r\,\}
         .\]
-    对几乎处处的 $x$ 成立.
+    对几乎处处的 $x$ 成立. 证明这个定理需要用到Radon\,--\,Nikodym定理和一些极大函数的有界性处理(主要是从好的函数推广到一般的局部可积函数). 这样类型的定理并非特例:
+    \begin{theorem}
+        令$f$, $\phi$可积, 且$\phi \geqslant 0$, 径向递减(即$\exists $单减函数$\psi :[\,0,\infty)\to [\,0,\infty)$满足$\phi (x)=\psi (|x|)$), 则
+        \[\lim_{t \to 0} \frac{1}{t^n}\int_{\mathbb R^n}\phi \Bigl(\frac{y}{t}\Bigr)f(x-y)\d x= \biggl(\int \phi\biggr)f(x).\]
+        几乎处处的 $x$ 成立.
+    \end{theorem}
+    \begin{theorem}[L. Carleson, 1965]
+        令$f$以$1$为周期, $\int_0^1|f|^2<\infty$, 则
+        \[\lim_{N \to \infty} \sum_{n=-N}^N \hat f(n)\mathrm{e} ^{2\pi\mathrm{i}n x}=f(x).\]
+        对几乎处处的 $x$ 成立. 其中$\hat f$是$f$的Fourier系数: $\hat f(n)=\int_0^{1}f(x)\mathrm{e} ^{-2\pi\mathrm{i} n x}\d x$.
+    \end{theorem}
+    证明的主要方法都是从性质良好的函数开始(比如光滑紧支函数或者速降函数), 然后(由光滑紧支函数或速降函数在可积函数空间内稠密)推广到可积函数空间, 其关键步骤是证明极大算子$\sup_{t > 0} |\int_{\mathbb R^n}\phi (y / t)f(x -y)/ t^n\d y |$或$\sup_{N \geqslant  0} |\sum_{n=-N}^N \hat f(n)\mathrm{e} ^{2\pi\mathrm{i}n x}|$的某种有界性, 从而从稠密集推广到整个度量空间(回想一下, 在稠密集上的一致连续函数可以唯一延拓到整个完备度量空间, 极大函数的有界性自然可以强烈地限制原算子的有界性, 而赋范线性空间间的线性映射有界和连续等价).
 \end{alterendnote}
 \begin{alterendnote}
     有趣的是这件事并非那么显然, 但的确是从开区间上的性质决定了 $\mathcal L$ 中集合的性质, 这需要用到 Carathéodory 延拓定理, 大概描述的是在描述一个集合(事实上应该是代数)上的测度 $\mu $ 延拓到该集合生成的\;$\sigma $-代数上的测度 $\mu_{\sigma } $ 在 $\mu $ 是\;$\sigma $-有限的前提下, 延拓是唯一的. 故生成的\;$\sigma $-代数可由代数上的测度直接决定. 当然也可以依靠外测度的定义直接证明.
@@ -167,6 +178,9 @@
 \begin{alterendnote}
     我们这里不会称为``可积的'', 因为这些函数的积分可能是 $\infty$, 而此种情况我们不会认为函数``可积''.
 \end{alterendnote}
+% \begin{alterendnote}
+%     一个最朴素, 直观的差距是测度上的积分对应了比Riemann积分更强的分解: 若$X=\bigcup_{\alpha \in A}U_ \alpha $, 则$f=\sum_{\alpha \in A}f\chi_{U_ \alpha }$. 直接类比Riemann积分: 其对应的是$U_ \alpha$是子区间的情形, 应此受制于连续性; 而测度上的积分只需$U_ \alpha $可测, 某种意义上会比Riemann积分更广阔些.
+% \end{alterendnote}
 \begin{alterendnote}
     事实上我们关注的主要是函数列的上 / 下极限, 上 / 下确界, 因为按我们以前关于\;$\sigma $-代数和测度的处理, 我们只能处理可数个对象.
 \end{alterendnote}
@@ -276,18 +290,18 @@
         \mathop{\vcenter{\hbox{\LARGE$\mathbf{V}$}}}_{[a,b]}F \coloneqq \sup_{n\geqslant 0}\biggl\{\,\sum_{j=0}^n|F(x_{j+1})-F(x_j)|\biggm|a=x_0<x_1<\cdots <x_n=b\,\biggr\} < \infty
         .\]
     此时称 $F$ 是 $[\,a,b\,]$ 上的有界变差函数. 另外地, 选取这个定义还与曲线的长度相关: 若 $F:[\,a,b\,]\to \mathbb C$, 则 $\mathop{\vcenter{\hbox{\Large$\mathbf{V}$}}}_{[a,b]}F$ 实际上是 $\operatorname{im}F$ 的长度.
-    
+
     粗略地来说, 有界变差是对可求长曲线的推广, 也是对单调函数的推广(因为有界的单调函数必然是有界变差的, 事实上, 打到 $\mathbb R$ 上的有界变差函数可以写为两个单增函数之差). 在之前的注记中提到过, 有界变差函数几乎处处有导数, 因此对于可求长曲线, 其切向量几乎处处存在, 这让沿着可求长曲线的积分称为了可能.
-    
+
     有趣的是, 有界变差的定义并非来自对测度的处理, 事实上, 有界变差要求 $F$ 在局部的振幅不应过大, 而 Fourier 级数的收敛亦与振幅直接相关. 事实上, Jordan 在 1881 年的一篇论文 \emph{Sur la série de Fourier} 中引入了这个概念.
-    
+
     回到对单调函数的讨论中来. 我们可以对单调(递增)函数作以下著名的分解:
     \[f = f_{\mathrm D} + f_{\mathrm{AC}} + f_{\mathrm{SC}}.\]
     其中三者都有独特的性质:
     \begin{itemize}
         \item $f_{\mathrm D}$ 是一个``离散(Discrete)''的函数: $\sum_{n\geqslant 0}a_n\chi_{\{b_n\}}$, 其实代表着 $f$ 的不连续点, 减去这些不连续点所造成的差之后 $f$ 就连续了;
         \item $f_{\mathrm{AC}}$ 可以求导, 且满足微积分基本定理: \[\int_a^b f_{\mathrm{AC}}' = f_{\mathrm{AC}}(b)-f_{\mathrm{AC}}(a).\] 根据微积分基本定理我们知晓此时 $f_{\mathrm{AC}}$ 绝对连续(Absolutely Continuous);
-        \item $f_{\mathrm{SC}}$ 比较特殊, 其对应的是``导数几乎处处为 $0$ 但是并不是常数函数''的函数. 事实上, 由 Fatou 引理我们可以得到: \[f(b) - f(a) \geqslant \int_{a}^b f'.\] 而 $f_{\mathrm{SC}}$ 就是其中 $f(b) - f(a) > \int_{a}^b f'$ 的那一部分. 此时 $f_{\mathrm{SC}}$ 是奇异连续(Singular Continuous)的. 一些不太雅观的例子就像是``严格单增但导数几乎处处为 $0$'' 的连续函数一样(见\cite{Brown69}).
+        \item $f_{\mathrm{SC}}$ 比较特殊, 其对应的是``导数几乎处处为 $0$ 但是并不是常数函数''的函数. 事实上, 由 Fatou 引理我们可以得到: \[f(b) - f(a) \geqslant \int_{a}^b f'.\] 而 $f_{\mathrm{SC}}$ 就是其中 $f(b) - f(a) > \int_{a}^b f'$ 的那一部分. 此时 $f_{\mathrm{SC}}$ 是奇异连续(Singular Continuous)的. 一些不太雅观的例子就像是``严格单增但导数几乎处处为 $0$'' 的连续函数一样(见\,\cite{Brown69}).
     \end{itemize}
     由于一般的有界变差函数可以由单调函数拼成, 因此这个分解也可以对一般的有界变差函数有效, 在某种意义上这属于我们对一个有界变差函数分解的最终情形.
 \end{alterendnote}

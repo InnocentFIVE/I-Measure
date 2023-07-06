@@ -1,15 +1,25 @@
 \RequirePackage[no-math]{fontspec}
 \documentclass{Imeasure}
-\usepackage{amsthm}
 
+\setmonofont{lmmonoproplt10-regular.otf}
+\hyphenation{Carathéo-dory}
 \title{\sffamily 我测!\,------\,度量世界\enote \\ 
 \medskip\small\url{https://github.com/InnocentFIVE/I-Measure}}
 \author{小飞舞}
-\date{\fontspec{lmsansquot8-regular.otf}\number\year~\rule{.6pt}{.68em}~\ifnum\month<10 0\number\month\else\number\month\fi~\rule{.6pt}{.68em} \ifnum\day<10 0\number\day\else\number\day\fi}
+\date{\fontspec{lmsansquot8-regular.otf}\number\year~\rule{.6pt}{.68em}~\ifnum\month<10 0\number\month\else\number\month\fi~\rule{.6pt}{.68em}~\ifnum\day<10 0\number\day\else\number\day\fi}
+
+\def\fangsong{\CJKfontspec{Resource Han Rounded SC Normal}[Scale = .9]}
+
+\makeatletter
+\def\@lbibitem[#1]#2{\@skiphyperreftrue \H@item [\ifx \Hy@raisedlink \@empty \hyper@anchorstart {cite.#2\@extra@b@citeb }\ttfamily\fangsong\@BIBLABEL {#1}\hyper@anchorend \else \Hy@raisedlink {\hyper@anchorstart {cite.#2\@extra@b@citeb }\hyper@anchorend }\ttfamily\fangsong\@BIBLABEL {#1}\fi \hfill ]\@skiphyperreffalse \if@filesw \begingroup \let \protect \noexpand \immediate \write \@auxout {\ttfamily\fangsong\string \bibcite {#2}{#1}}\endgroup \fi \ignorespaces}
+\def\@citex[#1]#2{{\ttfamily\fangsong\leavevmode \let \@citea \@empty \@cite {\@for \@citeb :=#2\do {\@citea \def \@citea {,\penalty \@m \ }\edef \@citeb {\expandafter \@firstofone \@citeb \@empty }\if@filesw \immediate \write \@auxout {\string \citation {\@citeb }}\fi \@ifundefined {b@\@citeb }{\hbox {\reset@font \bfseries ?}\G@refundefinedtrue \@latex@warning {Citation `\@citeb ' on page \thepage \space undefined}}{\@cite@ofmt {\csname b@\@citeb \endcsname }}}}{#1}}}
+\makeatother
+
 
 
 
 \begin{document}
+
 \input{endnotes.tex}
 \maketitle
 \input{Chapter 0.tex}
@@ -22,6 +32,6 @@
 \input{Chapter 6.tex}
 \input{Chapter 7.tex}
 \theendnotes
-% \label{innocent:endnotes}
+\label{innocent:endnotes}
 
 \end{document}
