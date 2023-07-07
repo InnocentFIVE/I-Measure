@@ -13,7 +13,6 @@
 \RequirePackage[scr=boondox]{mathalpha}
 \RequirePackage{dsfont}
 \DeclareMathAlphabet{\mathbb}{U}{dsrom}{m}{n}
-\def\mathalfa@bbscaled{7}
 \RequirePackage{amsmath,amsfonts,amssymb,amsthm,euscript,fontspec,tocloft,fancyhdr,mathtools,enumitem,pgfplots,tikz-cd,xeCJKfntef,endnotes}
 \RequirePackage{fixdif}
 \RequirePackage{etoolbox}
@@ -53,6 +52,8 @@
             {Size={9-}, FakeStretch = 1, ItalicFont = FandolKai-Regular.otf}
         }
 ]
+\setmonofont{lmmonoproplt10-regular.otf}
+\setCJKmonofont[Scale = .9]{Resource Han Rounded SC Normal}
 \AtBeginDocument{%
     \DeclareFontFamily{U}{msa}{}
     \DeclareFontShape{U}{msa}{m}{n}{%
@@ -67,6 +68,9 @@
         <10->cmbrbs10%
     }{}
 }
+\renewcommand{\@cite}[2]{\texttt{[{#1\if@tempswa , #2\fi}]}}
+\AddToHook{cmd/@BIBLABEL/before}{\ttfamily}
+\newcommand{\autodate}{\number\year~\rule{.6pt}{.68em}~\ifnum\month<10 0\number\month\else\number\month\fi~\rule{.6pt}{.68em}~\ifnum\day<10 0\number\day\else\number\day\fi}
 
 % Something about mathemathics
 

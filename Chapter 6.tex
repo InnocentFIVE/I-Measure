@@ -12,7 +12,7 @@
         0, & x\notin\mathbb Q.
     \end{cases}
 \]
-(按照现在的惯例我们会将其记为 $\chi_{\mathbb Q}$)我们知晓其是非 Riemann 可积的. 这些反例引起的分析界的混乱让无数数学家投入其中. 我们迫切想要知道一个函数是 Riemann 可积的充要条件是啥, 那个时候大多数人已经知道这个充要条件与函数的不连续点相关, 但如何描述这个集合使得其是 Riemann 可积的充要条件成为了当时极富挑战性的问题\enote.
+(按照现在的惯例我们会将其记为 $\mathbb 1_{\mathbb Q}$)我们知晓其是非 Riemann 可积的. 这些反例引起的分析界的混乱让无数数学家投入其中. 我们迫切想要知道一个函数是 Riemann 可积的充要条件是啥, 那个时候大多数人已经知道这个充要条件与函数的不连续点相关, 但如何描述这个集合使得其是 Riemann 可积的充要条件成为了当时极富挑战性的问题\enote.
 
 而填上这个描述的正是 Lebesgue 本人. 这被称为以下著名的定理:
 \begin{theorem}[Lebesgue 定理]
@@ -24,43 +24,43 @@
 \begin{defi}[示性函数]
     令 $X$ 是集合, $E\subseteq X$, 则令
     \[
-        \chi_E(x) =\begin{cases}
+        \mathbb 1_E(x) =\begin{cases}
             1, & x\in E,    \\
             0, & x\notin E.
         \end{cases}
     \]
     称为示性函数.
 \end{defi}
-因此我们管 Dirichlet 函数叫做 $\chi_{\mathbb Q}$ 并非毫无道理. 现在我们来尝试定义一下测度空间上示性函数的积分.
+因此我们管 Dirichlet 函数叫做 $\mathbb 1_{\mathbb Q}$ 并非毫无道理. 现在我们来尝试定义一下测度空间上示性函数的积分.
 
 按照我们的想法, $(\mathbb R,\mathcal L,m)$ 是 Lebesgue 测度空间, 则应该有
 \[
-    \int_{\mathbb R}\chi_{E} = m(E).
+    \int_{\mathbb R}\mathbb 1_{E} = m(E).
 \]
 诸如 $E=[\,0,1\,]$ 此类上式是自然而然成立的, 反观 Dirichlet 函数:
 \[
-    \int_{\mathbb R}\chi_{\mathbb Q} = m(\mathbb Q) = 0
+    \int_{\mathbb R}\mathbb 1_{\mathbb Q} = m(\mathbb Q) = 0
     .\]
 (虽然看上去有点强词夺理)至少说明 Lebesgue 积分是有点用的. 至于 Lebesgue 如何定义积分的天才想法我们会在后面逐步揭露.
 
-首先强调一个事实: $\chi_E$ 中的 $E$ 必然是可测集才行. 这样的话我们也可以往抽象的测度积分迈进: 令 $(X,\mathcal M,\mu )$ 是测度空间和其上的一个测度, 那么定义 $\chi_E$ 的积分是
+首先强调一个事实: $\mathbb 1_E$ 中的 $E$ 必然是可测集才行. 这样的话我们也可以往抽象的测度积分迈进: 令 $(X,\mathcal M,\mu )$ 是测度空间和其上的一个测度, 那么定义 $\mathbb 1_E$ 的积分是
 \[
-    \int_X \chi_E \d \mu  \coloneqq  \mu (E)
+    \int_X \mathbb 1_E \d \mu  \coloneqq  \mu (E)
     .\]
 这看起来貌似只是照搬记号, 事实上, 对测度积分实际上可以通过变换测度来给出更加广泛的形式. 比如说 Lebesgue 测度对应的积分实际上是 Riemann 积分的推广; 对计数测度的积分实际上就是一般的求和; 对 Lebesgue\,--\,Stieltjes 测度的积分得到的结果是数学期望; 对 Dirac 测度的积分得到的结果是函数在 $0$ 处的值. 而这些看上去有点相似的东西都可以通过``对测度的积分''统一起来. 这也是一般的抽象测度积分的重要意义.
 
-好了好了, 至少现在我们知道对全空间上的示性函数的积分是什么, 但是我只是对一个(可测)子集积分呢? 比如 Lebesgue 积分: $\int_0^1 \chi_E$?
+好了好了, 至少现在我们知道对全空间上的示性函数的积分是什么, 但是我只是对一个(可测)子集积分呢? 比如 Lebesgue 积分: $\int_0^1 \mathbb 1_E$?
 
-事实上一个几乎显然的解决方案是 $\int_0^1 \chi_E=\int_{\mathbb R}\chi_E\cdot \chi_{[0,1]}=\int_{\mathbb R}\chi_{E\cap[0,1]}$. 相似的处理可以拓展到其他测度上.
+事实上一个几乎显然的解决方案是 $\int_0^1 \mathbb 1_E=\int_{\mathbb R}\mathbb 1_E\cdot \mathbb 1_{[0,1]}=\int_{\mathbb R}\mathbb 1_{E\cap[0,1]}$. 相似的处理可以拓展到其他测度上.
 
 现在我们对一般的示性函数已经了解了其应该怎么积分了, 现在我们来看看对一般的函数应该怎么积分.
 
-考虑到不可测集的存在, 我们大概也清楚应该有``不可测函数'', 比如说令 $A$ 是一个不可测集, 那么 $\chi_A$ 就是不可测的函数(即使它是示性函数). 另外, 由于测度可能会返回无穷, 我们有时候也不得不考虑被积函数有时候会摸到无穷的情形, 一个不太妙的例子来自于:
+考虑到不可测集的存在, 我们大概也清楚应该有``不可测函数'', 比如说令 $A$ 是一个不可测集, 那么 $\mathbb 1_A$ 就是不可测的函数(即使它是示性函数). 另外, 由于测度可能会返回无穷, 我们有时候也不得不考虑被积函数有时候会摸到无穷的情形, 一个不太妙的例子来自于:
 \[
     D_\infty(x) = \begin{cases}
         \infty, & x\in \mathbb Q,    \\
         0,      & x\notin \mathbb Q.
-    \end{cases} \ = \infty\chi_{\mathbb Q}.
+    \end{cases} \ = \infty\mathbb 1_{\mathbb Q}.
 \]
 考虑 $\int D_\infty$ 会得到 $0\cdot \infty$ 的情形. 在一般的数学分析中, 我们会叫他``不定式''. 因为在数学分析里, $\infty$ 是一个极限过程, 我们得到的值实际上是一个极限值, 其来自于趋向无穷与趋向 $0$ 的速率的比较. 但在这里, 由于舍弃了极限过程, $\infty$ 只是一个记号, 因此我们为了方便记 $0\cdot \infty = 0$\enote.
 
@@ -77,7 +77,7 @@
 \begin{itemize}
     \item 若 $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\sup_{n\geqslant 0}f_n$, $\inf_{n\geqslant 0}f_n$ 亦可测;
     \item 考虑集合的上下极限: $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\limsup_{n\geqslant 0}f_n$, $\liminf_{n\geqslant 0}f_n$ 亦可测.
-    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \chi_A(x)=1\,\}$.
+    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \mathbb 1_A(x)=1\,\}$.
 \end{itemize}
 如果我们把``可测''换成``可积'', 则前两款性质在 Riemann 积分属于是可望不可即的存在: 什么时候 $f$ 的良好性质也能通过上 / 下确界, 上 / 下极限保持呢\enote?
 
@@ -86,7 +86,7 @@
 \paragraph{``可测函数''的积分}
 考虑到我们刚刚只定义了示性函数的积分, 我们先来考虑对此定义的线性延拓:
 \[
-    \int \sum_{j=0}^n a_j\chi_{A_j}\d \mu = \sum_{j=0}^n a_j\int\chi_{A_j}\d \mu = \sum_{j=0}^n a_j\mu(A_j)
+    \int \sum_{j=0}^n a_j\mathbb 1_{A_j}\d \mu = \sum_{j=0}^n a_j\int\mathbb 1_{A_j}\d \mu = \sum_{j=0}^n a_j\mu(A_j)
     .\]
 (假定出现的集合都是可测的)那么对 $0\leqslant f<\infty$ 的情形, 我们的一个比较讨巧的定义是:
 \[
@@ -96,7 +96,7 @@
 \[
     \int f\,\hat{\mathrm d}\mu = \sup\Bigl\{\, \int \psi\, \hat{\d}\mu \Bigm| \psi \textit{ 是连续函数},\, 0\leqslant \psi \leqslant f\,\Bigr\}
     .\]
-因此又回到了那个问题: 在这个定义下隐藏的细节是什么? 在本文中上一个想要取代``面积''的例子是没能成功的 Jordan 容度, 因此我们不能胡乱地定义. 一个最朴素, 直观的原因是测度上的积分对应了比Riemann积分更强的分解: 若$X=\bigcup_{\alpha \in A}U_ \alpha $, 则$f=\sum_{\alpha \in A}f\chi_{U_ \alpha }$. 直接类比Riemann积分: 其对应的是$U_ \alpha$是子区间的情形, 应此受制于连续性; 而测度上的积分只需$U_ \alpha $可测, 某种意义上会比Riemann积分更广阔些. 以及其能够导出下面这个定理:
+因此又回到了那个问题: 在这个定义下隐藏的细节是什么? 在本文中上一个想要取代``面积''的例子是没能成功的 Jordan 容度, 因此我们不能胡乱地定义. 一个最朴素, 直观的原因是测度上的积分对应了比Riemann积分更强的分解: 若$X=\bigcup_{\alpha \in A}U_ \alpha $, 则$f=\sum_{\alpha \in A}f\mathbb 1_{U_ \alpha }$. 直接类比Riemann积分: 其对应的是$U_ \alpha$是子区间的情形, 应此受制于连续性; 而测度上的积分只需$U_ \alpha $可测, 某种意义上会比Riemann积分更广阔些. 以及其能够导出下面这个定理:
 \begin{theorem}[单调收敛定理]
     令 $\{f_n\}_{n\geqslant 0}$ 是非负可测函数列, 则
     \[
@@ -136,7 +136,7 @@
 
 如图, 这是一种奇特的实现方法: 分割 $f$ 的值域. 其具体过程较为繁琐, 此处意会即可(在这里是以 $1/8$ 为步长分割值域). 值得注意的是灰色代表的函数可以写为
 \[
-    \psi _{8}(x) = \sum_{j=0}^{n} a_jA_j = \sum_{j=0}^{n} \frac{j}{8}\chi_{f^{-1}([(j-1) / 8, j / 8))}\enote
+    \psi _{8}(x) = \sum_{j=0}^{n} a_jA_j = \sum_{j=0}^{n} \frac{j}{8}\mathbb 1_{f^{-1}([(j-1) / 8, j / 8))}\enote
     .\]
 (其中 $f^{-1} (E) = \{\,x\mid f(x)\in E\,\}$)其中出现了示性函数, 因此我们必须保证 $f^{-1}([\,a,b))$ 是可测的. 考虑到看起来不太美妙的 $[\,a,b)$ 其实是 Borel 集合, 因此不妨推广一下:
 \[
@@ -154,7 +154,7 @@
                 \begin{itemize}
                     \item 若 $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\sup_{n\geqslant 0}f_n$, $\inf_{n\geqslant 0}f_n$ 亦可测;
                     \item 考虑集合的上下极限: $\{f_n\}_{n\geqslant 0}$ 可测, 则 $\limsup_{n\geqslant 0}f_n$, $\liminf_{n\geqslant 0}f_n$ 亦可测.
-                    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \chi_A(x)=1\,\}$.
+                    \item 对任意 $a\in[\,-\infty,\infty\,]$, 我们有 $\{\,x\mid f(x)=a\,\}$ 是可测的. 这个是针对示性函数考虑的: $A = \{\,x\mid \mathbb 1_A(x)=1\,\}$.
                 \end{itemize}
                 第三款自然满足: 因为 $\{a\}=\bigcap_{j\geqslant 1}(a- 1 /j,a+1 /j)\in\mathcal B_{\overline{\mathbb R}}$. 我们现在考虑第一款:
                 \[
