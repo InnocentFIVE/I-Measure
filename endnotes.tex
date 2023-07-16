@@ -35,37 +35,45 @@
     事实上大家都承认.
 \end{alterendnote}
 \begin{alterendnote}
-    为什么是 $\sigma $? 事实上, $\sigma $(或S) 代表德语中的 Summe(求和), 或者对集合的求和(并), 而反之 $\delta $(或D) 来自德语 Durchschnitt(交). 更一般地, 我们用``$\sigma $-''表示可数求和, 比如拓扑空间 $X$ 若是可数个紧集之并, 则称其是\;$\sigma$-紧的.
+    为什么是 $\sigma $? 事实上, $\sigma $(或S) 代表德语中的 Summe(求和), 或者对集合的求和(并), 而反之 $\delta $(或D) 来自德语 Durchschnitt(交). 更一般地, 我们用``$\sigma $-''表示可数求和, 比如拓扑空间 $X$ 若是可数个紧集之并, 则称其是$\sigma$-紧的.
 \end{alterendnote}
 \begin{alterendnote}
-    当然还有定义在其他结构上的测度, 不过\;$\sigma $-代数是最容易处理的.
+    当然还有定义在其他结构上的测度, 不过$\sigma $-代数是最容易处理的.
 \end{alterendnote}
 \begin{alterendnote}
     有的书将其称作``可测空间'', 不过这个称呼看上去有点误导性.
 \end{alterendnote}
 \begin{alterendnote}
-    这个定义也不是构造性的, 事实上关于一个子集生成的\;$\sigma $-代数的确有生成公式, 但是并不直观也不好处理. 一个用处是来判断\;$\sigma $-代数的势: 如果 $A$ 到 $\mathbb R$ 有一个单射, 那么 $\mathcal M(A)$ 亦然.
+    这个定义也不是构造性的, 事实上关于一个子集生成的$\sigma $-代数的确有生成公式, 但是并不直观也不好处理. 一个用处是来判断$\sigma $-代数的势: 如果 $A$ 到 $\mathbb R$ 有一个单射(即$\operatorname{card}A\preccurlyeq \mathfrak c$), 那么 $\mathcal M(A)$ 亦然. 此举可以判断一些不可测集的存在性:
+    \begin{prop}
+        $\mathbb R$中存在非Borel可测的Lebesgue可测集.
+    \end{prop}
+    \begin{proof}
+        由上面的讨论, $\operatorname{card} \mathcal B_{\mathbb R}=\operatorname{card}(\mathcal M(\set{(a,b)\given a,b\in\mathbb Q,\,a<b}))=\mathfrak c$, 而Cantor集合
+        $\mathrm C\coloneqq \bigcap_{n\geqslant 0}\bigcup_{k=0}^{3^n}[\,(3k-1) / 3^{n+1},(3k+1) / 3^{n+1}\,]$
+        是Borel零测的, 因此其任意子集是Lebesgue可测的, 由于$\operatorname{card}(\mathcal P(\mathrm C))=2^{\mathfrak c}$, 故$\operatorname{card}\mathcal L=2^{\mathfrak c}$. 故$\mathcal L\setminus \mathcal B_{\mathbb R}$非空.
+    \end{proof}
 \end{alterendnote}
 \begin{alterendnote}
-    这类\;$\sigma $-代数的有特殊的作用: 比如说 $X$, $Y$ 是拓扑空间, $f:X\to Y$ 是同胚, 那么我们清楚 $f$ 诱导了 $X$, $Y$ 开集间的一一对应. 同时也诱导了 $\mathcal B_X$, $\mathcal B_Y$ 中集合(称为 Borel 集)的一一对应. 或者, 因为神说``\emph{开集要是可测的}''. 于是就有了 Borel\;$\sigma $-代数. 另外地, 由于还有 Baire $\sigma $-代数, 因此我们有时会记 Borel $\sigma $-代数为 $\mathcal{B}_{\mathrm{orel}}(X)$.
+    这类$\sigma $-代数的有特殊的作用: 比如说 $X$, $Y$ 是拓扑空间, $f:X\to Y$ 是同胚, 那么我们清楚 $f$ 诱导了 $X$, $Y$ 开集间的一一对应. 同时也诱导了 $\mathcal B_X$, $\mathcal B_Y$ 中集合(称为 Borel 集)的一一对应. 或者, 因为神说``\emph{开集要是可测的}''. 于是就有了 Borel $\sigma $-代数. 另外地, 由于还有 Baire $\sigma $-代数, 因此我们有时会记 Borel $\sigma $-代数为 $\mathcal{B}_{\mathrm{orel}}(X)$.
 \end{alterendnote}
 \begin{alterendnote}
     事实上这种东西叫做拓扑基(或者拓扑子基).
 \end{alterendnote}
 \begin{alterendnote}
-    可数性要求是为了防止我们超出\;$\sigma $-代数只能处理可数交并补的权限.
+    可数性要求是为了防止我们超出$\sigma $-代数只能处理可数交并补的权限.
 \end{alterendnote}
 \begin{alterendnote}
     一个例子是正项级数求和:对有限个正数求和我们自然可以交换求和顺序, 但对可数个呢? 通过基本的分析学我们知道这也是可以交换的, 即使得到的结果是无穷. 除此之外, 我们还关心非负可积函数列 $\{f_n\}_{n\geqslant 0}$ 会不会有\[\lim_{N \to \infty} \int \sum_{n=0}^N f_n = \int\sum_{n\geqslant 0}f_n.\](即使结果是无穷亦成立, 这看起来有点像二重求和, 虽然我们并不知道 $\sum_{n\geqslant 0} f_n$ 可积性如何), 这其实就是在之后的``单调收敛定理''. 在这种情形下, 将目标分为可数个有限的玩意, 然后分别处理之后加起来也许会有点作用.
 \end{alterendnote}
 \begin{alterendnote}
-    这样看来,\;$\sigma $-有限测度应该叫``半有限测度''更为合适, 但不巧的是半有限测度已经有定义了:若 $E\in\mathcal M$ 且 $\mu (E)=\infty$, 则 $\exists F\subseteq E$, $\infty>\mu (F)>0$. 我们这里不会讨论这种测度.
+    这样看来,$\sigma $-有限测度应该叫``半有限测度''更为合适, 但不巧的是半有限测度已经有定义了:若 $E\in\mathcal M$ 且 $\mu (E)=\infty$, 则 $\exists F\subseteq E$, $0<\mu (F)<\infty$. 我们这里不会讨论这种测度.
 \end{alterendnote}
 \begin{alterendnote}
     如果我们考虑 Dedekind 构造实数的方式, 会发现一个数集的上确界恰好是其对应分划之并.
 \end{alterendnote}
 \begin{alterendnote}
-    如果是拓扑的话, 只考虑序列对应的``连续性''是片面的, 但由于\;$\sigma $-代数只能处理可数次交, 并, 因此考虑序列才能变得自然.
+    如果是拓扑的话, 只考虑序列对应的``连续性''是片面的, 但由于$\sigma $-代数只能处理可数次交, 并, 因此考虑序列才能变得自然.
 \end{alterendnote}
 \begin{alterendnote}
     这个例子来自 Giuseppe Vitali.
@@ -99,7 +107,7 @@
     和历史的进程一样, Harnack 考虑的``外测度''一开始也只是处理 $\mathbb R$ 上的情形, 我们在这里暂时先不管不单纯的 $\mathbb R^n$, 只处理 $\mathbb R$ 上的情形.
 \end{alterendnote}
 \begin{alterendnote}
-    这里的 $(b_j-a_j)$ 也能换成 $F(b_j)-F(a_j)$, 其中 $F$ 是一个右连续单增函数, 我们管它叫``分布''. 比如令 $F=(\mathord{\arctan} + \pi /2)/2\pi $, 则 $F$ 是一个概率分布. 对于一般的 $F$, 我们管这样子定义的测度(在延拓之后)叫 Lebesgue\,--\,Stieltjes 测度, 直观上来看, 就相当于把 $\mathbb R$ 拉长缩短变形, 而在每点变形(缩涨)的程度刚好是 $F$ 的导数(事实上, $F$ 是几乎处处有导数的, 也就是 $F$ 不可导的点组成一个 Lebesgue 零测集).
+    这里的 $(b_j-a_j)$ 也能换成 $F(b_j)-F(a_j)$, 其中 $F$ 是一个右连续单增函数, 我们管它叫``分布''. 比如令 $F=(\mathord{\arctan} + \pi /2)/2\pi $, 则 $F$ 是一个概率分布. 对于一般的 $F$, 我们管这样子定义的测度(在延拓之后)叫 Lebesgue\,--\,Stieltjes 测度, 直观上来看, 就相当于把 $\mathbb R$ 拉长缩短变形, 而在每点变形(缩涨)的程度刚好是 $F$ 的导数(事实上, $F$ 是几乎处处有导数的, 也就是 $F$ 不可导的点组成一个 Lebesgue 零测集, 用特殊的话来说, 其生成的Lebesgue\,--\,Stieltjes 测度恰好是$F$的广义导数, 在此我们暂且模糊测度和广义函数的具体含义).
 \end{alterendnote}
 \begin{alterendnote}
     这里考虑 $(a_j,b_j\,]$ 而不是看起来更简单的 $(a_j,b_j)$ 其实是因为 $(a_j,b_j\,]\cup (b_j,c_j\,]  = (a_j,c_j\,]$ 是一个新的半开半闭区间. 而不是像 $(a_j,b_j)\cup (b_j,c_j)$ 这样的中间差了一个点的东西. 事实上如果要考虑在这种中间差了一个点的东西上定义对函数 $F$ 的 Lebesgue\,--\,Stieltjes 测度的话, 势必对 $F$ 的连续性有更高的要求, 这反而是一种束缚.
@@ -109,13 +117,13 @@
 \end{alterendnote}
 \begin{alterendnote}
     除了我们将要探讨的 Lebesgue 测度, 另一个著名的外测度例子是 $\mathbb R^n$ 上的 Hausdorff 测度($\operatorname{diam}$ 是球的直径):\[
-        \mathcal H^s_\delta(E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}(\operatorname{diam}C_j)^s\Bigm| C_j\textit{ 是直径不大于 $\delta $ 的球体},\, E\subseteq\bigcup_{j\geqslant 0}C_k\, \Bigr\}.\]这个测度和分形维数相关, 或者我们可以称为``$s$ 维对应的\;$\delta $-外测度''. 一个例子是 Cantor 集 $C$, 令
+        \mathcal H^s_\delta(E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}(\operatorname{diam}C_j)^s\Bigm| C_j\textit{ 是直径不大于 $\delta $ 的球体},\, E\subseteq\bigcup_{j\geqslant 0}C_k\, \Bigr\}.\]这个测度和分形维数相关, 或者我们可以称为``$s$ 维对应的$\delta $-外测度''. 一个例子是 Cantor 集 $\mathrm C$, 令
     \[
-        \mathcal H^s(C) = \lim_{\delta \to 0^+}\mathcal H^s_\delta(C).
+        \mathcal H^s(\mathrm C) = \lim_{\delta \to 0^+}\mathcal H^s_\delta(\mathrm C).
     \]
-    是 $C$ 对应的 $s$ 维 Hausdorff 外测度. 可以证明 $\exists t>0$,
+    是 $\mathrm C$ 对应的 $s$ 维 Hausdorff 外测度. 可以证明 $\exists t>0$,
     \[
-        \mathcal H^s(C) = \begin{cases}
+        \mathcal H^s(\mathrm C) = \begin{cases}
             \infty, & s<t, \\
             0,      & s>t.
         \end{cases}
@@ -128,10 +136,10 @@
     马后炮地说, 我们只是稍稍改了下面积的定义, 在 $s$ 扫过 $[\,0,\infty)$ 的过程中总有一个令其对应测度为有限正数(Hausdorff 维数), 而这个数的大小(当然受限于底空间的维度)可以判别所讨论集合的自相似程度与粗糙性. 更多有趣的内容见 \cite{falconer86}.
 \end{alterendnote}
 \begin{alterendnote}
-    Lebesgue 本人也给出了针对 Lebesgue 测度的可测性条件, 但和 Carathéodory 给出的不同. 事实上 Lebesgue 给出的条件非常依赖于测度的\;$\sigma $-有限性.
+    Lebesgue 本人也给出了针对 Lebesgue 测度的可测性条件, 但和 Carathéodory 给出的不同. 事实上 Lebesgue 给出的条件非常依赖于测度的$\sigma $-有限性.
 \end{alterendnote}
 \begin{alterendnote}
-    $B$ 当然可以是空集, 故 $\mathcal M\subseteq\overline{\mathcal M}$, 我们在这里跳过这个新结构是\;$\sigma $-代数的证明.
+    $B$ 当然可以是空集, 故 $\mathcal M\subseteq\overline{\mathcal M}$, 我们在这里跳过这个新结构是$\sigma $-代数的证明.
 \end{alterendnote}
 \begin{alterendnote}
     事实上也只能这样, 按照我们的理解, 零测集的子集必然零测, 故不应该通过并集影响测度.
@@ -145,7 +153,7 @@
     \[\mu^F (E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}\bigl(F(b_j)-F(a_j)\bigr)\Bigm| E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\, \Bigr\}.\]
     而此种情况下事实上有 $\mu ^{F_\mu}=\mu $.
 
-    考虑看起来(相比 Lebesgue 测度)不完备的 Borel\;$\sigma $-代数上的测度上的的一个重要性是很多特殊的测度的可测集都包含 $\mathcal B_{\mathbb R}$(毕竟是开集生成的\;$\sigma $-代数), 比如 Lebesgue\,--\,Stieltjes 测度. 而很多与 Lebesgue 测度相关的性质可以同样下放到一般的 Lebesgue\,--\,Stieltjes 测度上. 比如:\[\begin{aligned}
+    考虑看起来(相比 Lebesgue 测度)不完备的 Borel $\sigma $-代数上的测度上的的一个重要性是很多特殊的测度的可测集都包含 $\mathcal B_{\mathbb R}$(毕竟是开集生成的$\sigma $-代数), 比如 Lebesgue\,--\,Stieltjes 测度. 而很多与 Lebesgue 测度相关的性质可以同样下放到一般的 Lebesgue\,--\,Stieltjes 测度上. 比如:\[\begin{aligned}
             \mu (E) & =\inf\bigl\{\, \mu (A)\bigm| E\subseteq A,\,A\textit{ 是 $\mathbb R$ 中的开集}\,\bigr\}   \\
                     & = \sup\bigl\{\, \mu (A)\bigm| A\subseteq E,\,A\textit{ 是 $\mathbb R$ 中的紧集}\,\bigr\}.
         \end{aligned}\]
@@ -155,9 +163,9 @@
         .\]
     对几乎处处的 $x$ 成立. 证明这个定理需要用到Radon\,--\,Nikodym定理和一些极大函数的有界性处理(主要是从好的函数推广到一般的局部可积函数). 这样类型的定理并非特例:
     \begin{theorem}
-        令$f$, $\phi$可积, 且$\phi \geqslant 0$, 径向递减(即$\exists $单减函数$\psi :[\,0,\infty)\to [\,0,\infty)$满足$\phi (x)=\psi (|x|)$), 则
+        令$f$, $\phi$可积, 且$\phi \geqslant 0$, 径向递减(即$\exists $非增函数$\psi :[\,0,\infty)\to [\,0,\infty)$满足$\phi (x)=\psi (|x|)$), 则
         \[\lim_{t \to 0} \frac{1}{t^n}\int_{\mathbb R^n}\phi \Bigl(\frac{y}{t}\Bigr)f(x-y)\d x= \biggl(\int \phi\biggr)f(x).\]
-        几乎处处的 $x$ 成立.
+        几乎处处的 $x$ 成立. Lebesgue微分定理就是$\psi = \mathbb 1_{N_1(x)}$的情形.
     \end{theorem}
     \begin{theorem}[L. Carleson, 1965]
         令$f$以$1$为周期, $\int_0^1|f|^2<\infty$, 则
@@ -167,7 +175,7 @@
     证明的主要方法都是从性质良好的函数开始(比如光滑紧支函数或者速降函数), 然后(由光滑紧支函数或速降函数在可积函数空间内稠密)推广到可积函数空间, 其关键步骤是证明极大算子$\sup_{t > 0} |\int_{\mathbb R^n}\phi (y / t)f(x -y)/ t^n\d y |$或$\sup_{N \geqslant  0} |\sum_{n=-N}^N \hat f(n)\mathrm{e} ^{2\pi\mathrm{i}n x}|$的某种有界性, 从而从稠密集推广到整个度量空间(回想一下, 在稠密集上的一致连续函数可以唯一延拓到整个完备度量空间, 极大函数的有界性自然可以强烈地限制原算子的有界性, 而赋范线性空间间的线性映射有界和连续等价). 更多内容可以参考\cite{2001fourier}, 和\cite{miao2018}.
 \end{alterendnote}
 \begin{alterendnote}
-    有趣的是这件事并非那么显然, 但的确是从开区间上的性质决定了 $\mathcal L$ 中集合的性质, 这需要用到 Carathéodory 延拓定理, 大概描述的是在描述一个集合(事实上应该是代数)上的测度 $\mu $ 延拓到该集合生成的\;$\sigma $-代数上的测度 $\mu_{\sigma } $ 在 $\mu $ 是\;$\sigma $-有限的前提下, 延拓是唯一的. 故生成的\;$\sigma $-代数可由代数上的测度直接决定. 当然也可以依靠外测度的定义直接证明.
+    有趣的是这件事并非那么显然, 但的确是从开区间上的性质决定了 $\mathcal L$ 中集合的性质, 这需要用到 Carathéodory 延拓定理, 大概描述的是在描述一个集合(事实上应该是代数)上的测度 $\mu $ 延拓到该集合生成的$\sigma $-代数上的测度 $\mu_{\sigma } $ 在 $\mu $ 是$\sigma $-有限的前提下, 延拓是唯一的. 故生成的$\sigma $-代数可由代数上的测度直接决定. 当然也可以依靠外测度的定义直接证明.
 \end{alterendnote}
 \begin{alterendnote}
     正所谓``\textit{任何同函数论有关的问题都将导致同集合论有关的某些问题, 只要后面这种问题获得解决或者可能解决, 原有问题就可以随之解决或者近乎解决}.''~------René Baire
@@ -182,7 +190,7 @@
 %     一个最朴素, 直观的差距是测度上的积分对应了比Riemann积分更强的分解: 若$X=\bigcup_{\alpha \in A}U_ \alpha $, 则$f=\sum_{\alpha \in A}f\chi_{U_ \alpha }$. 直接类比Riemann积分: 其对应的是$U_ \alpha$是子区间的情形, 应此受制于连续性; 而测度上的积分只需$U_ \alpha $可测, 某种意义上会比Riemann积分更广阔些.
 % \end{alterendnote}
 \begin{alterendnote}
-    事实上我们关注的主要是函数列的上 / 下极限, 上 / 下确界, 因为按我们以前关于\;$\sigma $-代数和测度的处理, 我们只能处理可数个对象.
+    事实上我们关注的主要是函数列的上 / 下极限, 上 / 下确界, 因为按我们以前关于$\sigma $-代数和测度的处理, 我们只能处理可数个对象.
 \end{alterendnote}
 \begin{alterendnote}
     我们在这里不写\[\left| \int \psi _n\d \mu-\!\int f\d \mu  \right|\to 0. \]是为了防止 $\infty-\infty$ 的情形.
@@ -200,9 +208,9 @@
     如果你要考虑打到 $\mathbb R^n$ 之类的可测函数, 那么定义会稍稍复杂些. 我们此处不处理这些函数.
 \end{alterendnote}
 \begin{alterendnote}
-    另一个暂时性的诠释是, (若读者知晓拓扑的定义的话) $\sigma $-代数和拓扑在某种意义上有些相似: 拓扑应当对有限交与任意并封闭, 而\;$\sigma$-代数对可数交和可数并(以及补)封闭. 事实上, 两个拓扑空间 $(X,\mathcal T)$, $(Y,\mathcal P)$ 间的连续映射 $f:X\to Y$ 应满足\[\forall G\in \mathcal P,\quad f^{-1} (G)\in\mathcal T.\]此与可测空间间的可测函数相对应\[f:(X,\mathcal M_1)\to (Y,\mathcal M_2),\quad \forall A\in\mathcal M_2,\quad f^{-1} (A)\in\mathcal M_1.\]因此广泛点说, 可测函数是保持两个可测空间的\;$\sigma $-代数上结构的映射, 或者称为可测空间组成的范畴之态射, 如同连续映射对拓扑空间, 全纯函数对复空间一般.
+    另一个暂时性的诠释是, (若读者知晓拓扑的定义的话) $\sigma $-代数和拓扑在某种意义上有些相似: 拓扑应当对有限交与任意并封闭, 而$\sigma$-代数对可数交和可数并(以及补)封闭. 事实上, 两个拓扑空间 $(X,\mathcal T)$, $(Y,\mathcal P)$ 间的连续映射 $f:X\to Y$ 应满足\[\forall G\in \mathcal P,\quad f^{-1} (G)\in\mathcal T.\]此与可测空间间的可测函数相对应\[f:(X,\mathcal M_1)\to (Y,\mathcal M_2),\quad \forall A\in\mathcal M_2,\quad f^{-1} (A)\in\mathcal M_1.\]因此广泛点说, 可测函数是保持两个可测空间的$\sigma $-代数上结构的映射, 或者称为可测空间组成的范畴之态射, 如同连续映射对拓扑空间, 全纯函数对复空间一般.
 
-    另外地, 看上去\;$\sigma $-代数像是在拓扑的定义上稍作修改, 而我们自然关心这种修改会让其各自对应的``保持结构的映射''改变多少, 也即连续映射与可测映射的关系. 一个著名的定理是 Luzin 定理:
+    另外地, 看上去$\sigma $-代数像是在拓扑的定义上稍作修改, 而我们自然关心这种修改会让其各自对应的``保持结构的映射''改变多少, 也即连续映射与可测映射的关系. 一个著名的定理是 Luzin 定理:
     \begin{theorem}[Luzin]
         对于 $[\,a,b\,]$ 上的可测函数 $f$, 对任意 $\varepsilon>0$, $\exists E_\varepsilon\subset[\,a,b\,]$ 且 $m(E_\varepsilon)<\varepsilon$, $f$ 在 $[\,a,b\,]\setminus E_\varepsilon$ 上连续.
     \end{theorem}
@@ -210,26 +218,26 @@
     \[
         \mathcal T(A) = \textit{包含 $A$ 的最小拓扑} = \bigcap_{T,\textit{拓扑}\atop A\subset T}T,\quad A\subset\mathcal P(X)
         .\]
-    不过拓扑的生成与\;$\sigma $-代数的生成有相当大的区别: 最大的区别来自拓扑只要求有限交封闭, 因此我可以让 $A$ 中元素任意有限交得到``原子集合'', 再自由地并起来即可. 因此, 对于拓扑的生成我们有简明的公式
+    不过拓扑的生成与$\sigma $-代数的生成有相当大的区别: 最大的区别来自拓扑只要求有限交封闭, 因此我可以让 $A$ 中元素任意有限交得到``原子集合'', 再自由地并起来即可. 因此, 对于拓扑的生成我们有简明的公式
     \[
-        \mathcal S(A) = \biggl\{~ G \;\biggm|\; G = \bigcap_{U\in B\atop \mkern-8mu B\subset A,\textit{有限子集}\mkern-8mu} U ~\biggr\},\quad \mathcal T(A) = \biggl\{~ H \;\biggm|\; H = \bigcup_{G\in B\atop B\subset \mathcal S(A)} G ~\biggr\}
+        \mathcal S(A) = \biggl\{~ G \biggm| G = \bigcap_{U\in B\atop \mkern-8mu B\subset A,\textit{有限子集}\mkern-8mu} U ~\biggr\},\quad \mathcal T(A) = \biggl\{~ H \biggm| H = \bigcup_{G\in B\atop B\subset \mathcal S(A)} G ~\biggr\}
         .\]
     或者
     \[
-        \mathcal T(A) = \biggl\{~\bigcup_{\textit{任意}}\bigcap_{\textit{有限}} G\;\biggm|\; G\in A  ~\biggr\}
+        \mathcal T(A) = \biggl\{~\bigcup_{\textit{任意}}\bigcap_{\textit{有限}} G\biggm| G\in A  ~\biggr\}
         .\]
-    而\;$\sigma $-代数的生成公式则要复杂许多.
+    而$\sigma $-代数的生成公式则要复杂许多.
 
-    最后一个例子是乘积\;$\sigma $-代数: $\{\mathcal M_ \alpha\}_{\alpha\in A}$ 是\;$\sigma $-代数族, 则乘积\;$\sigma $-代数规定为 $\prod_{\alpha\in A}X_\alpha$ 上令投影映射 $\pi_\alpha$ 可测的最小\;$\sigma $-代数 $\bigotimes_{\alpha\in A}\mathcal M_\alpha$. 因为在前面说过, $\pi_\alpha$ 作为标准的投影映射必然是要保持\;$\sigma $-代数上结构才行, 也即是可测, 而最小\;$\sigma $-代数是因为最大\;$\sigma $-代数 $\mathcal P(\prod_{\alpha\in A}X_\alpha)$ 是平凡的. 一言蔽之:
+    最后一个例子是乘积$\sigma $-代数: $\{\mathcal M_ \alpha\}_{\alpha\in A}$ 是$\sigma $-代数族, 则乘积$\sigma $-代数规定为 $\prod_{\alpha\in A}X_\alpha$ 上令投影映射 $\pi_\alpha$ 可测的最小$\sigma $-代数 $\bigotimes_{\alpha\in A}\mathcal M_\alpha$. 因为在前面说过, $\pi_\alpha$ 作为标准的投影映射必然是要保持$\sigma $-代数上结构才行, 也即是可测, 而最小$\sigma $-代数是因为最大$\sigma $-代数 $\mathcal P(\prod_{\alpha\in A}X_\alpha)$ 是平凡的. 一言蔽之:
     \[
         \begin{aligned}
             \pi_\alpha \textit{ 可测} & \implies E_\alpha\in\mathcal M_\alpha, \quad\pi _\alpha^{-1} (E_\alpha) \in \bigotimes_{\alpha\in A}\mathcal M_\alpha                                               \\
                                       & \implies \bigotimes_{\alpha\in A}\mathcal M_\alpha = \mathcal M( \{\, \pi _\alpha^{-1} (E_\alpha) \mid E_\alpha\in \mathcal M_\alpha,\,\forall \alpha\in A\, \}  ).
         \end{aligned}
     \]
-    而此与乘积拓扑 $\mathcal T (\{\,\bigcap_{\alpha\in B\atop B\subset A,\textit{有限子集}\mkern-8mu} \pi _\alpha^{-1} (E_\alpha) \mid E_\alpha~\textit{是}~X_\alpha \textit{ 中开集}\,\})$ 的构造不谋而合. 乘积\;$\sigma $-代数的一个作用是讨论 $\mathbb R^n$ 中的 Lebesgue 可测集, 事实上 $\mathcal L^n = \overline{\prod_{j=1}^n\mathcal L}$. 也即是在 $\mathbb R$ 的 Lebesgue 可测集乘积 $n$ 次后的完备化, 至于其对应的 Lebesgue 测度, 可由在矩形上的处理 $m^n(\prod_{j=1}^n (a_j,b_j\,]) = \prod_{j=1}^n(b_j-a_j)$ 延拓至 $\overline{\prod_{j=1}^n\mathcal L}$ 得到(事实上我们当然可以一步到位直接延拓到最大的那个\;$\sigma $-代数, 但考虑乘积拓扑可以通过完备化的方式让我们对可测集的构造有更深的理解, 因此\hyperref[AcupN]{正规性}对 $\mathbb R^n$ 中的 Lebesgue 测度也是成立的).
+    而此与乘积拓扑 $\mathcal T (\{\,\bigcap_{\alpha\in B\atop B\subset A,\textit{有限子集}\mkern-8mu} \pi _\alpha^{-1} (E_\alpha) \mid E_\alpha~\textit{是}~X_\alpha \textit{ 中开集}\,\})$ 的构造不谋而合. 乘积$\sigma $-代数的一个作用是讨论 $\mathbb R^n$ 中的 Lebesgue 可测集, 事实上 $\mathcal L^n = \overline{\prod_{j=1}^n\mathcal L}$. 也即是在 $\mathbb R$ 的 Lebesgue 可测集乘积 $n$ 次后的完备化, 至于其对应的 Lebesgue 测度, 可由在矩形上的处理 $m^n(\prod_{j=1}^n (a_j,b_j\,]) = \prod_{j=1}^n(b_j-a_j)$ 延拓至 $\overline{\prod_{j=1}^n\mathcal L}$ 得到(事实上我们当然可以一步到位直接延拓到最大的那个$\sigma $-代数, 但考虑乘积拓扑可以通过完备化的方式让我们对可测集的构造有更深的理解, 因此\hyperref[AcupN]{正规性}对 $\mathbb R^n$ 中的 Lebesgue 测度也是成立的).
 
-    至于为什么说这个诠释是暂时性的, 事实上我们可以在远弱于\;$\sigma $-代数的结构上定义测度(比如半环), 而这些结构其实与拓扑差距甚大, 因此与拓扑的类比作为引入用的暂时性例子是更合适的.
+    至于为什么说这个诠释是暂时性的, 事实上我们可以在远弱于$\sigma $-代数的结构上定义测度(比如半环), 而这些结构其实与拓扑差距甚大, 因此与拓扑的类比作为引入用的暂时性例子是更合适的.
 \end{alterendnote}
 \begin{alterendnote}
     这里的 $L$ 其实是为了纪念 Lebesgue, 即使我们并没有处理 Lebesgue 测度.
@@ -268,14 +276,14 @@
     也就是\[\nu (E)=\inf\Bigl\{ \,\sum_{j\geqslant 0}\bigl(F(a_j)-F(b_j)\bigr)\Bigm| E\subseteq\bigcup_{j\geqslant 0}(a_j,b_j\,]\, \Bigr\}\]其中 $F$ 是单增右连续函数.
 \end{alterendnote}
 \begin{alterendnote}
-    事实上, 这样的 $f$ 并不是唯一的, $f$ 自然可以在一个\;$\mu $-零测集下乱跑, 只需保证是可测的即可. 同时, 由于 $\nu $ 和 $\mu $ 都是非负的, 因此 $f$ 也是几乎处处非负的, 若要考虑 $\mathbb R$ 甚至 $\mathbb C$ 上的函数, 则须引入符号测度或复测度.
+    事实上, 这样的 $f$ 并不是唯一的, $f$ 自然可以在一个$\mu $-零测集下乱跑, 只需保证是可测的即可. 同时, 由于 $\nu $ 和 $\mu $ 都是非负的, 因此 $f$ 也是几乎处处非负的, 若要考虑 $\mathbb R$ 甚至 $\mathbb C$ 上的函数, 则须引入符号测度或复测度.
 \end{alterendnote}
 \begin{alterendnote}
-    事实上, Radon\,--\,Nikodym 定理阐明, 如果 $\nu$ 对 $\mu $ 绝对连续, 其中 $\nu$ 可以是一般的(正)测度, 也可以是符号测度或者复测度, $\mu $ 是正测度, 且两个测度都是\;$\sigma $-有限的, 且定义在同一个\;$\sigma $-代数上. 那么满足
+    事实上, Radon\,--\,Nikodym 定理阐明, 如果 $\nu$ 对 $\mu $ 绝对连续, 其中 $\nu$ 可以是一般的(正)测度, 也可以是符号测度或者复测度, $\mu $ 是正测度, 且两个测度都是$\sigma $-有限的, 且定义在同一个$\sigma $-代数上. 那么满足
     \[
         \nu (E) = \int_E f\d \mu
         .\]
-    的 $f$ 必然存在, 且在相差一个\;$\mu $-零测集的情形下唯一.
+    的 $f$ 必然存在, 且在相差一个$\mu $-零测集的情形下唯一.
 \end{alterendnote}
 \begin{alterendnote}
     事实上这个奇特的``测度的绝对连续''定义与函数的绝对连续之间有强烈的关联: 对于一个右连续有界变差函数 $F$(且满足 $\lim_{x\to -\infty}F(x) = 0$), 其生成的 Lebesgue\,--\,Stieltjes 测度 $\mu ^F$ 对 Lebesgue 测度绝对连续当且仅当 $F$ 在 $\mathbb R$ 上绝对连续. 至于什么是有界变差, 其实我们考虑一个(可以是不单调的)右连续函数生成的 Lebesgue\,--\,Stieltjes 测度. 我们(自然)希望有
@@ -306,12 +314,12 @@
     由于一般的有界变差函数可以由单调函数拼成, 因此这个分解也可以对一般的有界变差函数有效, 在某种意义上这属于我们对一个有界变差函数分解的最终情形.
 \end{alterendnote}
 \begin{alterendnote}
-    \label{Fubini}事实上, 这个结果也可以推广到一般的\;$\sigma $-有限测度. \par 说点题外话, 读者会发现我们列举的许多定理都要求\;$\sigma $-有限测度, 事实上在这些定理的经典证明中, 往往都是先对有限测度讨论, 然后再通过可数相加推广到\;$\sigma $-有限测度.\;$\sigma $-有限测度最著名的例子当然是 Lebesgue 测度, 非\;$\sigma $-有限测度的典例当属不可数集上的计数测度. 因此某种意义上, 计数测度虽然看起来简单, 但却与某些反例息息相关. 至于有限测度有什么优点\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,我想最直观的应当是对集列下降情形的连续性 \hyperref[测度的连续性:集列下降]{(点这儿!)}.
+    \label{Fubini}事实上, 这个结果也可以推广到一般的$\sigma $-有限测度. \par 说点题外话, 读者会发现我们列举的许多定理都要求$\sigma $-有限测度, 事实上在这些定理的经典证明中, 往往都是先对有限测度讨论, 然后再通过可数相加推广到$\sigma $-有限测度.$\sigma $-有限测度最著名的例子当然是 Lebesgue 测度, 非$\sigma $-有限测度的典例当属不可数集上的计数测度. 因此某种意义上, 计数测度虽然看起来简单, 但却与某些反例息息相关. 至于有限测度有什么优点\,$\mathinner{\ldotp \ldotp \ldotp\ldotp \ldotp \ldotp}$\,我想最直观的应当是对集列下降情形的连续性 \hyperref[测度的连续性:集列下降]{(点这儿!)}.
 \end{alterendnote}
 \begin{alterendnote}
-    Fubini\,--\,Tonelli 定理看似只是处理普通的积分换序问题------很容易和多元微积分中的 Fubini 定理类比, 但正如尾注 \ref{Fubini} 所说的, Fubini\,--\,Tonelli 定理可以推广到\;$\sigma $-有限测度的情形: 比如可数集上的计数测度.
+    Fubini\,--\,Tonelli 定理看似只是处理普通的积分换序问题------很容易和多元微积分中的 Fubini 定理类比, 但正如尾注 \ref{Fubini} 所说的, Fubini\,--\,Tonelli 定理可以推广到$\sigma $-有限测度的情形: 比如可数集上的计数测度.
     \begin{theorem}[Fubini, Tonelli]
-        令 $f$ 是测度空间 $(X,\mathcal M)$ 上的可测函数, $\mu _1$, $\dots $, $\mu _n$ 是定义在 $\mathcal M$ 上的\;$\sigma $-有限测度, 则:
+        令 $f$ 是测度空间 $(X,\mathcal M)$ 上的可测函数, $\mu _1$, $\dots $, $\mu _n$ 是定义在 $\mathcal M$ 上的$\sigma $-有限测度, 则:
 
         若 $f\geqslant 0$ 或 $f\in L(\mu_1 \times \cdots \times \mu _n)$, 则
         \[

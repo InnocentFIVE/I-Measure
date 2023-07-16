@@ -53,7 +53,7 @@
         }
 ]
 \setmonofont{lmmonoproplt10-regular.otf}
-\setCJKmonofont[Scale = .9]{Resource Han Rounded SC Normal}
+\setCJKmonofont[Scale = .9, FakeStretch=1.1]{Resource Han Rounded SC Light}
 \AtBeginDocument{%
     \DeclareFontFamily{U}{msa}{}
     \DeclareFontShape{U}{msa}{m}{n}{%
